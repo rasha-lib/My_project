@@ -1,66 +1,64 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>مكتبتنا الرقمية</title>
+  <title>Digital Library</title>
   <style>
     body {
-      margin: 0;
-      font-family: "Tahoma", sans-serif;
-      background: url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f") no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      background-color: #4b2e2e; /* بني غامق للخلفية */
+      font-family: "Georgia", serif;
       text-align: center;
+      padding: 100px;
     }
-    .welcome {
-      background: rgba(0,0,0,0.6);
+
+    .welcome-box {
+      background-color: #6b3e3e; /* بني أفتح للمربع */
+      color: #d4af37; /* ذهبي */
       padding: 40px;
       border-radius: 15px;
-      box-shadow: 0 0 20px #FFD700;
-      animation: fadeIn 2s ease;
-      color: #FFD700; /* ذهبي */
-    }
-    h1 {
-      font-size: 42px;
-      margin-bottom: 15px;
-    }
-    h2 {
-      font-size: 28px;
-      margin-bottom: 25px;
-    }
-    .buttons a {
       display: inline-block;
-      margin: 10px;
-      padding: 15px 30px;
-      background: #FFD700;
-      color: #4B2E2E;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      margin-bottom: 50px;
+    }
+
+    h1 {
+      font-size: 3.2em;
+      margin-bottom: 15px;
       font-weight: bold;
-      border-radius: 10px;
+    }
+
+    h2 {
+      font-size: 2.2em;
+      margin-bottom: 25px;
+      font-weight: bold;
+    }
+
+    a {
+      display: inline-block;
+      margin: 15px;
+      padding: 15px 35px;
+      background-color: #d4af37;
+      color: #4b2e2e;
+      font-size: 1.4em;
+      font-weight: bold;
       text-decoration: none;
+      border-radius: 8px;
       transition: 0.3s;
     }
-    .buttons a:hover {
-      background: #c9a000;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
+
+    a:hover {
+      background-color: #ffd700;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-
-  <div class="welcome">
-    <h1>Welcome to Our Library</h1>
-    <h2>✨ مرحباً بكم في مكتبتنا الرقمية ✨</h2>
-    <div class="buttons">
-      <a href="arabic.html">🇸🇦 العربية</a>
-      <a href="english.html">🇬🇧 English</a>
-    </div>
+  <div class="welcome-box">
+    <h1>📖 Welcome to Our Library 📖</h1>
+    <h2>📖 مرحبًا بكم في مكتبتنا 📖</h2>
+    <p>Choose your language | اختر لغتك:</p>
+    <a href="english.html">English</a>
+    <a href="arabic.html">العربية</a>
   </div>
-
 </body>
 </html>
