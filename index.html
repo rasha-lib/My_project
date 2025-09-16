@@ -1,62 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكتبتنا</title>
-    <style>
-       body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background: url("خلفية.jpg") no-repeat center center fixed;
-    background-size: cover;
-    font-family: Arial, sans-serif;
-        }
-welcome-box {
-    background: rgba(60, 40, 20, 0.85); 
-    padding: 20px 30px;
-    border-radius: 12px;
-    text-align: center;
-    font-size: 22px;
-    font-weight: bold;
-    color: #d4af37; /* ذهبي غامق وأنيق */
-    display: inline-block;
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.6);
-}
-        .welcome-box h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('خلفية.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: "Arial", sans-serif;
+    }
 
-        .lang-buttons button {
-            margin: 10px;
-            padding: 12px 25px;
-            font-size: 18px;
-            background: gold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            color: #b8860b;
-            font-weight: bold;
-        }
+    .welcome-box {
+      background: rgba(60, 40, 20, 0.85); /* بني غامق شفاف */
+      padding: 20px 30px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: #d4af37; /* ذهبي غامق */
+      display: inline-block;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.6);
+      margin-bottom: 20px;
+    }
 
-        .lang-buttons button:hover {
-            background: #d4af37;
-        }
-    </style>
+    .container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn {
+      background-color: #d4af37;
+      border: none;
+      padding: 12px 24px;
+      margin: 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #b8962f;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
     <div class="welcome-box">
-        <h1>📚 Welcome to Our Library</h1>
-        <h1>📚 مرحبًا بك في مكتبتنا</h1>
-        <div class="lang-buttons">
-            <button onclick="location.href='arabic.html'">العربية</button>
-            <button onclick="location.href='english.html'">English</button>
-        </div>
+      📚 Welcome to Our Library <br>
+      📚 مرحبًا بكم في مكتبتنا
     </div>
+    <div>
+      <a href="arabic.html"><button class="btn">العربية</button></a>
+      <a href="english.html"><button class="btn">English</button></a>
+    </div>
+  </div>
 </body>
 </html>
-
-
-
