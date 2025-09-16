@@ -6,3 +6,30 @@ body {
   padding: 0;
   text-align: center;
 }
+
+.welcome-box {
+  background-color: rgba(92, 64, 51, 0.9); /* بني شفاف */
+  color: #f1e6d0; /* لون متناسق مع البني */
+  display: inline-block;
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.lang-btn {
+  background-color: rgba(92, 64, 51, 0.9); /* نفس لون البوكس */
+  color: #f1e6d0;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.lang-btn:hover {
+  background-color: rgba(70, 50, 40, 0.9);
+}
