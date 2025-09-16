@@ -1,70 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Digital Library</title>
-  <style>
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background: url("خلفية.jpg") no-repeat center center fixed;
-    background-size: cover;
-    font-family: Arial, sans-serif;
-}
-    .welcome-box {
-      background-color: rgba(75, 46, 46, 0.85); /* بني شبه شفاف */
-      color: #d4af37; /* ذهبي */
-      padding: 40px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبتنا</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url("خلفية.jpg") no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
 
-    h1 {
-      font-size: 3em;
-      margin-bottom: 15px;
-      font-weight: bold;
-    }
+        .welcome-box {
+            background: rgba(92, 64, 51, 0.9); /* بني شبه شفاف */
+            color: gold;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+        }
 
-    h2 {
-      font-size: 2.2em;
-      margin-bottom: 25px;
-      font-weight: bold;
-    }
+        .welcome-box h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
 
-    p {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-    }
+        .lang-buttons button {
+            margin: 10px;
+            padding: 12px 25px;
+            font-size: 18px;
+            background: gold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #b8860b;
+            font-weight: bold;
+        }
 
-    a {
-      display: inline-block;
-      margin: 10px;
-      padding: 15px 35px;
-      background-color: #d4af37;
-      color: #4b2e2e;
-      font-size: 1.4em;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: 0.3s;
-    }
-
-    a:hover {
-      background-color: #ffd700;
-      transform: scale(1.05);
-    }
-  </style>
+        .lang-buttons button:hover {
+            background: #d4af37;
+        }
+    </style>
 </head>
 <body>
-  <div class="welcome-box">
-    <h1>📚 Welcome to Our Library 📚</h1>
-    <h2>📚 مرحبًا بكم في مكتبتنا 📚</h2>
-    <p>Choose your language | اختر لغتك:</p>
-    <a href="english.html">English</a>
-    <a href="arabic.html">العربية</a>
-  </div>
+    <div class="welcome-box">
+        <h1>📚 Welcome to Our Library</h1>
+        <h1>📚 مرحبًا بك في مكتبتنا</h1>
+        <div class="lang-buttons">
+            <button onclick="location.href='arabic.html'">العربية</button>
+            <button onclick="location.href='english.html'">English</button>
+        </div>
+    </div>
 </body>
 </html>
-
