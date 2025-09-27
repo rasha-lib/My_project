@@ -3,36 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Books</title>
+  <title>Library</title>
   <style>
     body {
-      background-image: url('images/PNG.png'); /* المسار مضبوط */
+      background-image: url('images/PNG.png'); /* الخلفية الأصلية */
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
       margin: 0;
       height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: flex-end; /* نزول العناصر لتحت */
-      align-items: center; /* توسيط العناصر أفقياً */
-    }
-
-    .books-content {
-      position: absolute;
-      top: 50px;
-      width: 100%;
-      text-align: center;
- color: #fff;
-      font-size: 24px;
-      font-weight: bold;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: flex-end;
     }
 
     .btn {
       background-color: #800000; /* عنابي */
       color: #f5e0b7;
-      border: none;
+border: none;
       padding: 10px 20px;
       margin: 6px;
       border-radius: 8px;
@@ -49,16 +37,12 @@
     .btn-container {
       margin-bottom: 50px;
     }
-  </style>
+</style>
 </head>
 <body>
-  <div class="books-content">
-    📚 مرحبًا بك في قسم الكتب
-  </div>
-
   <div class="btn-container">
-    <a href="arabic.html"><button class="btn">العربية</button></a>
-    <a href="english.html"><button class="btn">English</button></a>
+    <a href="books.html"><button class="btn">العربية</button></a>
+    <a href="books.html"><button class="btn">English</button></a>
   </div>
 </body>
 </html>
