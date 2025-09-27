@@ -1,6 +1,8 @@
 body {
-  background: url('background.png') no-repeat center center fixed;
-  background-size: cover;
+    background-image: url('PNG.png'); /* مسار الصورة */
+    background-size: cover;  /* عشان تمتد على كامل الصفحة */
+    background-repeat: no-repeat; /* ما تتكرر */
+    background-position: center;  /* تكون في الوسط */
 }
 .welcome-box {
   background-color: rgba(92, 64, 51, 0.9); /* بني شفاف */
