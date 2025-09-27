@@ -7,7 +7,7 @@
   <style>
     /* الخلفية الخاصة بالكتب */
     body {
-      background-image: url('images/خلفية.jpg');
+      background-image: url('images/PNG.png'); /* حطي هنا اسم الصورة في مجلد images */
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
@@ -19,6 +19,18 @@
       align-items: center; /* توسيط العناصر أفقياً */
     }
 
+    /* محتوى الكتب */
+    .books-content {
+      position: absolute;
+ top: 50px;
+      text-align: center;
+      width: 100%;
+      color: #fff; /* لون الخط في المحتوى */
+      font-size: 24px;
+      font-weight: bold;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
+
     /* أزرار اللغة */
     .btn {
       background-color: #800000; /* عنابي */
@@ -27,9 +39,9 @@
       padding: 10px 20px;
       margin: 6px;
       border-radius: 8px;
-font-size: 16px;
+      font-size: 16px;
       font-weight: bold;
-      cursor: pointer;
+   cursor: pointer;
       transition: 0.3s;
     }
 
@@ -41,24 +53,12 @@ font-size: 16px;
     .btn-container {
       margin-bottom: 50px; /* مسافة من الأسفل */
     }
-
-    /* محتوى الكتب (تقدري تضيفي هنا الكتب أو أي عناصر) */
-    .books-content {
-      position: absolute;
-      top: 50px;
-      text-align: center;
-      width: 100%;
-      color: #fff; /* لون الخط في المحتوى */
-      font-size: 24px;
-      font-weight: bold;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-    }
-</style>
+  </style>
 </head>
 <body>
   <!-- محتوى الكتب -->
   <div class="books-content">
-    📚 مرحبًا بك في قسم الكتب
+  📚 مرحبًا بك في قسم الكتب
   </div>
 
   <!-- أزرار اللغة -->
@@ -68,7 +68,3 @@ font-size: 16px;
   </div>
 </body>
 </html>
-
-
-
-
