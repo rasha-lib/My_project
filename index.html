@@ -5,38 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library</title>
   <style>
-    /* الخلفية الأساسية بلون بني */
-  body {
-    background-image: url('PNG.png'); /* مسار الصورة */
-    background-size: cover;  /* عشان تمتد على كامل الصفحة */
-    background-repeat: no-repeat; /* ما تتكرر */
-    background-position: center;  /* تكون في الوسط */
-}
-    /* صندوق الترحيب */
-    .welcome-box {
-      background: rgba(60, 40, 20, 0.85); /* بني غامق شفاف */
-      padding: 20px 30px;
-      border-radius: 12px;
-      text-align: center;
-      font-size: 22px;
-      font-weight: bold;
-      color: #d4af37; /* ذهبي */
-      display: inline-block;
-      box-shadow: 0px 4px 15px rgba(0,0,0,0.6);
-      margin-bottom: 20px;
+    /* الخلفية الأساسية */
+    body {
+      background-image: url('PNG.png'); /* مسار الصورة */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
     }
- /* ترتيب العناصر في الصفحة */
+
+    /* ترتيب العناصر في الصفحة */
     .container {
       height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      gap: 20px; /* مسافة بين العناصر */
     }
-
     /* أزرار اللغة */
     .btn {
-      background-color: rgba(92, 58, 33, 0.8); /* بني شفاف */
+      background-color: #800000; /* عنابي */
       color: #f5e0b7; /* لون الخط */
       border: none;
       padding: 10px 20px;
@@ -49,22 +37,22 @@
     }
 
     .btn:hover {
-      background-color: rgba(139, 94, 60, 0.9); /* تأثير عند التمرير */
+      background-color: #a00000; /* عنابي أفتح عند التمرير */
     }
+
+    /* نزّل الأزرار شوي من الأعلى */
+    .btn-container {
+      margin-top: 50px; /* تقدري تغيّري الرقم حسب رغبتك */
+    }
+
   </style>
 </head>
 <body>
-<div class="container">
-    <div class="welcome-box">
-      📚 Welcome to Our Library <br>
-      📚 مرحبًا بكم في مكتبتنا
-    </div>
-    <div>
+  <div class="container">
+ <div class="btn-container">
       <a href="arabic.html"><button class="btn">العربية</button></a>
       <a href="english.html"><button class="btn">English</button></a>
     </div>
   </div>
 </body>
 </html>
-
-
