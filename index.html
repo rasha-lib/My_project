@@ -11,19 +11,15 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-    }
-
-    /* ترتيب العناصر في الصفحة */
-    .container {
+      margin: 0;
       height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 20px; /* مسافة بين العناصر */
+      justify-content: center; /* توسيط أفقياً */
+      align-items: flex-end;   /* نزول العناصر لتحت */
     }
+
     /* أزرار اللغة */
-    .btn {
+ .btn {
       background-color: #800000; /* عنابي */
       color: #f5e0b7; /* لون الخط */
       border: none;
@@ -40,19 +36,16 @@
       background-color: #a00000; /* عنابي أفتح عند التمرير */
     }
 
-    /* نزّل الأزرار شوي من الأعلى */
+    /* حاوية الأزرار */
     .btn-container {
-      margin-top: 50px; /* تقدري تغيّري الرقم حسب رغبتك */
+      margin-bottom: 50px; /* مسافة من الأسفل */
     }
-
   </style>
 </head>
 <body>
-  <div class="container">
- <div class="btn-container">
-      <a href="arabic.html"><button class="btn">العربية</button></a>
-      <a href="english.html"><button class="btn">English</button></a>
-    </div>
+  <div class="btn-container">
+    <a href="arabic.html"><button class="btn">العربية</button></a>
+    <a href="english.html"><button class="btn">English</button></a>
   </div>
 </body>
 </html>
