@@ -5,24 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Library</title>
   <style>
+    /* الخلفية الأساسية */
     body {
-      background-image: url('images/PNG.png'); /* الخلفية الأصلية */
+      background-image: url('PNG.png'); /* مسار الصورة */
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
       margin: 0;
       height: 100vh;
       display: flex;
-      justify-content: center;
-      align-items: flex-end;
+      justify-content: center; /* توسيط أفقياً */
+      align-items: flex-end;   /* نزول العناصر لتحت */
     }
 
+    /* أزرار اللغة */
     .btn {
       background-color: #800000; /* عنابي */
-      color: #f5e0b7;
-border: none;
+      color: #f5e0b7; /* لون الخط */
+      border: none;
       padding: 10px 20px;
-      margin: 6px;
+ margin: 6px;
       border-radius: 8px;
       font-size: 16px;
       font-weight: bold;
@@ -31,18 +33,19 @@ border: none;
     }
 
     .btn:hover {
-      background-color: #a00000;
+      background-color: #a00000; /* عنابي أفتح عند التمرير */
     }
 
+    /* حاوية الأزرار */
     .btn-container {
-      margin-bottom: 50px;
+      margin-bottom: 50px; /* مسافة من الأسفل */
     }
-</style>
+  </style>
 </head>
 <body>
   <div class="btn-container">
-    <a href="books.html"><button class="btn">العربية</button></a>
-    <a href="books.html"><button class="btn">English</button></a>
+    <a href="arabic.html"><button class="btn">العربية</button></a>
+    <a href="english.html"><button class="btn">English</button></a>
   </div>
 </body>
 </html>
