@@ -1,35 +1,71 @@
-body {
-  background: url("خلفية.jpg") no-repeat center center fixed;
-  background-size: cover;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library</title>
+  <style>
+    /* الخلفية الأساسية */
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('PNG.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: "Arial", sans-serif;
+    }
 
-.welcome-box {
-  background-color: rgba(92, 64, 51, 0.9); /* بني شفاف */
-  color: #f1e6d0; /* لون متناسق مع البني */
-  display: inline-block;
-  padding: 15px 25px;
-  border-radius: 10px;
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 20px;
-}
+    /* صندوق الترحيب */
+    .welcome-box {
+      background: rgba(60, 40, 20, 0.85);
+      padding: 20px 30px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 22px;
+   font-weight: bold;
+      color: #d4af37;
+      display: inline-block;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.6);
+      margin-bottom: 20px;
+    }
 
-.lang-btn {
-  background-color: rgba(92, 64, 51, 0.9); /* نفس لون البوكس */
-  color: #f1e6d0;
-  padding: 10px 20px;
-  margin: 10px;
-  border-radius: 8px;
-  font-size: 18px;
-  font-weight: bold;
-  border: none;
- cursor: pointer;
-}
+    /* ترتيب العناصر في الصفحة */
+    .container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-.lang-btn:hover {
-  background-color: rgba(70, 50, 40, 0.9);
-}
+    /* أزرار اللغة */
+    .btn {
+      background-color: rgba(92, 58, 33, 0.8);
+      color: #f5e0b7;
+      border: none;
+      padding: 10px 20px;
+      margin: 6px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+   transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: rgba(139, 94, 60, 0.9);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="welcome-box">
+      📚 Welcome to Our Library <br>
+      📚 مرحبًا بكم في مكتبتنا
+    </div>
+    <div>
+      <a href="arabic.html"><button class="btn">العربية</button></a>
+      <a href="english.html"><button class="btn">English</button></a>
+    </div>
+  </div>
+</body>
+</html>
