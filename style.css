@@ -1,11 +1,10 @@
 body {
   margin: 0;
   padding: 0;
-  background: url('PNG.png') no-repeat center center fixed;
+  background: url('background.png') no-repeat center center fixed;
   background-size: cover;
   font-family: "Arial", sans-serif;
 }
-
 .welcome-box {
   background-color: rgba(92, 64, 51, 0.9); /* بني شفاف */
   color: #f1e6d0; /* لون متناسق مع البني */
