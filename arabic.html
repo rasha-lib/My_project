@@ -1,42 +1,50 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-  <link rel="stylesheet" href="style.css">
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>المكتبة الرقمية</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الصفحة العربية</title>
   <style>
+    /* الصفحة الداخلية */
     body {
-      background-color: #4b2e2e; /* بني */
-      color: #d4af37; /* ذهبي */
-      font-family: "Amiri", serif;
+      background-image: url('bg-inner.jpg'); /* الخلفية الداخلية */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: Arial, sans-serif;
       text-align: center;
-      padding: 50px;
     }
-    h1 {
-      font-size: 3em;
+
+    /* زر العودة للصفحة الرئيسية */
+    .btn-back {
+ background-color: #800000;
+      color: #f5e0b7;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 20px;
     }
-    .books {
-      margin-top: 40px;
-    }
-    a {
-      display: block;
-      font-size: 1.5em;
-      margin: 15px 0;
-      color: #ffd700;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+
+    .btn-back:hover {
+      background-color: #a00000;
     }
   </style>
 </head>
 <body>
-  <h1>📚 مرحبًا بكم في مكتبتنا 📚</h1>
-  <h2>اختر كتابك:</h2>
-
-  <div class="books">
-    <a href="book1.pdf" target="_blank">📖 كتاب تجريبي رقم 1</a>
-    <a href="book2.pdf" target="_blank">📖 كتاب تجريبي رقم 2</a>
-  </div>
+  <div>
+    <h1>مرحبًا بك في الصفحة العربية</h1>
+    <p>محتوى الصفحة الداخلية هنا...</p>
+    <a href="index.html"><button class="btn-back">العودة للصفحة الرئيسية</button></a>
+ </div>
 </body>
 </html>
