@@ -1,51 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Library</title>
+  <title>📚 المكتبة الرقمية</title>
   <style>
-    /* الصفحة الرئيسية */
     body {
-      background-image: url('PNG.png'); /* الخلفية الرئيسية */
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
       margin: 0;
       height: 100vh;
+      background-image: url('خلفية.jpg'); /* غيري الاسم حسب صورتك */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: "Tahoma", sans-serif;
       display: flex;
-      justify-content: center; /* توسيط أفقياً */
-      align-items: flex-end;   /* نزول العناصر لتحت */
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
     }
- /* أزرار اللغة */
-    .btn {
-      background-color: #800000; /* عنابي */
-      color: #f5e0b7; /* لون الخط */
-      border: none;
-      padding: 10px 20px;
-      margin: 6px;
-      border-radius: 8px;
-      font-size: 16px;
+
+    h1 {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 15px 30px;
+      border-radius: 10px;
+      margin-bottom: 40px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      width: 80%;
+      max-width: 800px;
+    }
+
+    .categories a {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 20px;
       font-weight: bold;
-      cursor: pointer;
+      color: #ffd700;
+      text-decoration: none;
       transition: 0.3s;
     }
 
-    .btn:hover {
-      background-color: #a00000; /* عنابي أفتح عند التمرير */
-    }
-
-    /* حاوية الأزرار */
-    .btn-container {
-  .btn-container {
-      margin-bottom: 50px; /* مسافة من الأسفل */
+    .categories a:hover {
+      background: rgba(128, 0, 0, 0.8);
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-  <div class="btn-container">
-    <a href="arabic.html"><button class="btn">العربية</button></a>
-    <a href="english.html"><button class="btn">English</button></a>
+  <h1>📚 أهلاً بك في المكتبة الرقمية 📚</h1>
+
+  <div class="categories">
+    <a href="istiraha.html">☕ استراحة القارئ</a>
+    <a href="adab.html">📖 الأداب</a>
+    <a href="she3r.html">✒️ الشعر</a>
+    <a href="falsafa.html">💭 الفلسفة</a>
+    <a href="funoon.html">🎨 الفنون</a>
+    <a href="tareekh.html">📜 التاريخ</a>
   </div>
 </body>
 </html>
