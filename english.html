@@ -1,61 +1,63 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en"> 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الصفحة العربية</title>
+  <title>Digital Library</title>
   <style>
-    /* الخلفية الخارجية */
     body {
-      background-image: url('outside.jpg'); /* اسم صورتك الخارجية */
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
       margin: 0;
       height: 100vh;
+      background-image: url('خلفية.jpg'); /* غيّري الاسم حسب صورة التصميم عندك */
+      background-size: cover; /* تخليها تغطي الشاشة */
+      background-position: center; /* توسيط */
+      background-repeat: no-repeat; /* تمنع التكرار */
+      
+      color: #d4af37; /* gold */
+      font-family: "Georgia", serif;
+      text-align: center;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      font-family: Arial, sans-serif;
     }
-
-    /* الصندوق الداخلي */
-    .inner {
-      background-image: url('خلفية.jpg'); /* اسم صورتك الداخلية */
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      padding: 40px;
-      border-radius: 15px;
-      color: white;
-      text-align: center;
-      box-shadow: 0 0 15px rgba(0,0,0,0.6);
-    }
-
-    /* زر العودة للصفحة الرئيسية */
-    .btn-back {
-      background-color: #800000;
-      color: #f5e0b7;
-      border: none;
+    h1 {
+      font-size: 3em;
+      background: rgba(0,0,0,0.5); /* خلفية شفافة للنص عشان يوضح فوق الصورة */
       padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-      margin-top: 20px;
+      border-radius: 10px;
     }
-
-    .btn-back:hover {
-      background-color: #a00000;
+    h2 {
+      background: rgba(0,0,0,0.4);
+      padding: 5px 15px;
+      border-radius: 8px;
+    }
+    .books {
+      margin-top: 40px;
+    }
+    a {
+      display: block;
+      font-size: 1.5em;
+      margin: 15px 0;
+      color: #ffd700;
+      text-decoration: none;
+      background: rgba(0,0,0,0.4);
+      padding: 10px 15px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+    a:hover {
+      background: rgba(0,0,0,0.6);
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="inner">
-    <h1>مرحبًا بك في الصفحة العربية</h1>
-    <p>محتوى الصفحة الداخلية هنا...</p>
-    <a href="index.html"><button class="btn-back">العودة للصفحة الرئيسية</button></a>
+  <h1>📚 Welcome to Our Library 📚</h1>
+  <h2>Select your book:</h2>
+
+  <div class="books">
+    <a href="book1.pdf" target="_blank">📖 Sample Book 1</a>
+    <a href="book2.pdf" target="_blank">📖 Sample Book 2</a>
   </div>
 </body>
 </html>
