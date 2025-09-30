@@ -7,57 +7,38 @@
     body {
       margin: 0;
       height: 100vh;
-      background-image: url('خلفية.jpg'); /* غيّري الاسم حسب صورة التصميم عندك */
-      background-size: cover; /* تخليها تغطي الشاشة */
-      background-position: center; /* توسيط */
-      background-repeat: no-repeat; /* تمنع التكرار */
-      
-      color: #d4af37; /* gold */
+      background-image: url('background.jpg'); /* غيّري الاسم حسب صورة التصميم عندك */
+      background-size: cover; 
+      background-position: center; 
+      background-repeat: no-repeat; 
+
       font-family: "Georgia", serif;
-      text-align: center;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      justify-content: flex-end; /* نخلي المحتوى تحت */
       align-items: center;
+      flex-direction: column;
     }
-    h1 {
-      font-size: 3em;
-      background: rgba(0,0,0,0.5); /* خلفية شفافة للنص عشان يوضح فوق الصورة */
-      padding: 10px 20px;
-      border-radius: 10px;
-    }
-    h2 {
-      background: rgba(0,0,0,0.4);
-      padding: 5px 15px;
+
+    /* Back button */
+    .btn-back {
+      background-color: #800000;
+      color: #f5e0b7;
+      border: none;
+      padding: 12px 25px;
       border-radius: 8px;
-    }
-    .books {
-      margin-top: 40px;
-    }
-    a {
-      display: block;
-      font-size: 1.5em;
-      margin: 15px 0;
-      color: #ffd700;
-      text-decoration: none;
-      background: rgba(0,0,0,0.4);
-      padding: 10px 15px;
-      border-radius: 6px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 30px; /* Space from bottom */
       transition: 0.3s;
     }
-    a:hover {
-      background: rgba(0,0,0,0.6);
-      text-decoration: underline;
+
+    .btn-back:hover {
+      background-color: #a00000;
     }
   </style>
 </head>
 <body>
-  <h1>📚 Welcome to Our Library 📚</h1>
-  <h2>Select your book:</h2>
-
-  <div class="books">
-    <a href="book1.pdf" target="_blank">📖 Sample Book 1</a>
-    <a href="book2.pdf" target="_blank">📖 Sample Book 2</a>
-  </div>
+  <a href="index.html"><button class="btn-back">⬅ Back to Home</button></a>
 </body>
 </html>
