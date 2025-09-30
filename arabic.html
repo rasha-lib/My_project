@@ -2,7 +2,7 @@
 <html lang="ar"> 
 <head>
   <meta charset="UTF-8">
-  <title>المكتبة الرقمية</title>
+  <title>📚 المكتبة الرقمية</title>
   <style>
     body {
       margin: 0;
@@ -11,7 +11,6 @@
       background-size: cover; 
       background-position: center; 
       background-repeat: no-repeat; 
-
       font-family: "Tahoma", sans-serif;
       display: flex;
       flex-direction: column;
@@ -68,27 +67,33 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
 
-    /* قائمة الكتب */
-    .books {
-      margin-top: 10px;
+    /* قائمة التصنيفات */
+    .categories {
+      margin-top: 20px;
       margin-bottom: auto;
       text-align: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      width: 80%;
+      max-width: 900px;
     }
 
-    .books a {
+    .categories a {
       display: block;
-      font-size: 1.2em;
-      margin: 10px 0;
+      font-size: 1.3em;
       color: #ffd700;
       text-decoration: none;
-      background: rgba(0,0,0,0.5);
-      padding: 8px 12px;
-      border-radius: 6px;
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      border-radius: 10px;
+      font-weight: bold;
       transition: 0.3s;
     }
 
-    .books a:hover {
-      background: rgba(0,0,0,0.7);
+    .categories a:hover {
+      background: rgba(0,0,0,0.8);
+      transform: scale(1.05);
     }
 
     /* زر الرجوع */
@@ -113,19 +118,21 @@
 <body>
   <!-- شريط البحث أعلى الصفحة -->
   <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="ابحث عن كتاب...">
+    <input type="text" id="searchInput" placeholder="ابحث عن قسم...">
     <button>🔍 بحث</button>
   </div>
 
-  <!-- رسالة لا توجد نتائج فوق القائمة -->
+  <!-- رسالة لا توجد نتائج -->
   <div id="noResults" class="no-results">❗🚫 لا توجد نتائج مطابقة</div>
 
-  <!-- قائمة الكتب -->
-  <div class="books" id="booksList">
-    <a href="book1.pdf" target="_blank">📖 كتاب تجريبي 1</a>
-    <a href="book2.pdf" target="_blank">📖 كتاب تجريبي 2</a>
-    <a href="book3.pdf" target="_blank">📖 كتاب العلوم</a>
-    <a href="book4.pdf" target="_blank">📖 كتاب التاريخ</a>
+  <!-- التصنيفات -->
+  <div class="categories" id="categoriesList">
+    <a href="istiraha.html">استراحة القارئ</a>
+    <a href="funoon.html">الفنون</a>
+    <a href="adab.html">الأداب</a>
+    <a href="she3r.html">الشعر</a>
+    <a href="tareekh.html">التاريخ</a>
+    <a href="falsafa.html">الفلسفة</a>
   </div>
 
   <!-- زر الرجوع -->
@@ -133,20 +140,20 @@
 
   <script>
     const searchInput = document.getElementById("searchInput");
-    const booksList = document.getElementById("booksList").getElementsByTagName("a");
+    const categoriesList = document.getElementById("categoriesList").getElementsByTagName("a");
     const noResults = document.getElementById("noResults");
 
     searchInput.addEventListener("input", function() {
       let input = this.value.toLowerCase();
       let found = false;
 
-      for (let i = 0; i < booksList.length; i++) {
-        let text = booksList[i].textContent.toLowerCase();
+      for (let i = 0; i < categoriesList.length; i++) {
+        let text = categoriesList[i].textContent.toLowerCase();
         if (text.includes(input)) {
-          booksList[i].style.display = "block";
+          categoriesList[i].style.display = "block";
           found = true;
         } else {
-          booksList[i].style.display = "none";
+          categoriesList[i].style.display = "none";
         }
       }
 
