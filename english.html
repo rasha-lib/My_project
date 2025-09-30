@@ -1,19 +1,35 @@
 <!DOCTYPE html>
 <html lang="en"> 
-  <link rel="stylesheet" href="style.css">
 <head>
   <meta charset="UTF-8">
   <title>Digital Library</title>
   <style>
     body {
-      background-color: #4b2e2e; /* brown */
+      margin: 0;
+      height: 100vh;
+      background-image: url('my-bg.jpg'); /* غيّري الاسم حسب صورة التصميم عندك */
+      background-size: cover; /* تخليها تغطي الشاشة */
+      background-position: center; /* توسيط */
+      background-repeat: no-repeat; /* تمنع التكرار */
+      
       color: #d4af37; /* gold */
       font-family: "Georgia", serif;
       text-align: center;
-      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     h1 {
       font-size: 3em;
+      background: rgba(0,0,0,0.5); /* خلفية شفافة للنص عشان يوضح فوق الصورة */
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+    h2 {
+      background: rgba(0,0,0,0.4);
+      padding: 5px 15px;
+      border-radius: 8px;
     }
     .books {
       margin-top: 40px;
@@ -24,8 +40,13 @@
       margin: 15px 0;
       color: #ffd700;
       text-decoration: none;
+      background: rgba(0,0,0,0.4);
+      padding: 10px 15px;
+      border-radius: 6px;
+      transition: 0.3s;
     }
     a:hover {
+      background: rgba(0,0,0,0.6);
       text-decoration: underline;
     }
   </style>
