@@ -14,9 +14,65 @@
 
       font-family: "Tahoma", sans-serif;
       display: flex;
-      justify-content: flex-end; /* نخلي المحتوى تحت */
-      align-items: center;
       flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* شريط البحث */
+    .search-bar {
+      margin-top: 20px;
+      background: rgba(0,0,0,0.5);
+      padding: 10px 20px;
+      border-radius: 8px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .search-bar input {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+      width: 250px;
+    }
+
+    .search-bar button {
+      background-color: #800000;
+      color: #f5e0b7;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .search-bar button:hover {
+      background-color: #a00000;
+    }
+
+    /* قائمة الكتب */
+    .books {
+      margin-top: 20px;
+      margin-bottom: auto;
+      text-align: center;
+    }
+
+    .books a {
+      display: block;
+      font-size: 1.2em;
+      margin: 10px 0;
+      color: #ffd700;
+      text-decoration: none;
+      background: rgba(0,0,0,0.5);
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .books a:hover {
+      background: rgba(0,0,0,0.7);
     }
 
     /* زر الرجوع */
@@ -29,7 +85,7 @@
       font-size: 18px;
       font-weight: bold;
       cursor: pointer;
-      margin-bottom: 30px; /* مسافة من أسفل الصفحة */
+      margin-bottom: 30px;
       transition: 0.3s;
     }
 
@@ -39,6 +95,37 @@
   </style>
 </head>
 <body>
+  <!-- شريط البحث -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="ابحث عن كتاب...">
+    <button onclick="searchBooks()">🔍 بحث</button>
+  </div>
+
+  <!-- قائمة الكتب -->
+  <div class="books" id="booksList">
+    <a href="book1.pdf" target="_blank">📖 كتاب تجريبي 1</a>
+    <a href="book2.pdf" target="_blank">📖 كتاب تجريبي 2</a>
+    <a href="book3.pdf" target="_blank">📖 كتاب العلوم</a>
+    <a href="book4.pdf" target="_blank">📖 كتاب التاريخ</a>
+  </div>
+
+  <!-- زر الرجوع -->
   <a href="index.html"><button class="btn-back">⬅ العودة للصفحة الرئيسية</button></a>
+
+  <script>
+    function searchBooks() {
+      let input = document.getElementById("searchInput").value.toLowerCase();
+      let books = document.getElementById("booksList").getElementsByTagName("a");
+
+      for (let i = 0; i < books.length; i++) {
+        let text = books[i].textContent.toLowerCase();
+        if (text.includes(input)) {
+          books[i].style.display = "block";
+        } else {
+          books[i].style.display = "none";
+        }
+      }
+    }
+  </script>
 </body>
 </html>
