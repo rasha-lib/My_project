@@ -2,120 +2,76 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>المكتبة الرقمية</title>
   <style>
     body {
       margin: 0;
-      height: 100vh;
+      font-family: "Tahoma", sans-serif;
       background-image: url('خلفية.jpg'); /* غيّري الاسم حسب صورتك */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      font-family: "Tahoma", sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
       color: #fff;
     }
 
-    /* شريط البحث */
-    .search-bar {
-      width: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 15px;
-      display: flex;
-      justify-content: center;
-      gap: 10px;
+    /* الثلاث شرطات */
+    .menu-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 30px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    /* القائمة الجانبية */
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: rgba(0,0,0,0.95);
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
       box-sizing: border-box;
+      z-index: 1000;
     }
 
-    .search-bar input {
-      flex: 1;
-      max-width: 500px;
-      padding: 10px 15px;
-      border-radius: 6px;
-      border: none;
-      font-size: 18px;
-    }
-
-    .search-bar button {
-      background-color: #800000;
-      color: #f5e0b7;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 6px;
-      font-size: 18px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .search-bar button:hover {
-      background-color: #a00000;
-    }
-
-    /* تصنيفات العرض المتحرك */
-    .slideshow {
-      margin-top: 30px;
-      text-align: center;
-      position: relative;
+    .side-menu input {
       width: 80%;
-      max-width: 500px;
-      height: 150px;
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 15px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 26px;
-      font-weight: bold;
-      transition: 0.8s;
+      margin: 10px auto 20px auto;
+      display: block;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
     }
 
-    .category-name {
-      opacity: 0;
-      position: absolute;
-      transition: opacity 1s;
-    }
-
-    .category-name.active {
-      opacity: 1;
-    }
-
-    /* النقاط أسفل التصنيفات */
-    .dots {
-      display: flex;
-      justify-content: center;
-      margin-top: 15px;
-      gap: 8px;
-    }
-
-    .dot {
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.4);
-      cursor: pointer;
+    .side-menu a {
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 20px;
+      color: #ffd700;
+      display: block;
       transition: 0.3s;
     }
 
-    .dot.active {
-      background-color: #ffd700;
-      transform: scale(1.2);
+    .side-menu a:hover {
+      background-color: rgba(128,0,0,0.7);
+      border-radius: 6px;
     }
 
     /* الكتب */
     .books {
-      display: none;
-      margin-top: 20px;
+      margin: 100px auto 20px auto;
       width: 80%;
       max-width: 500px;
     }
 
     .book {
       background: rgba(0,0,0,0.5);
-      border: 1px solid #ddd;
       border-radius: 6px;
       padding: 10px;
       margin: 5px 0;
@@ -135,7 +91,10 @@
       border-radius: 8px;
       font-size: 20px;
       font-weight: bold;
-      margin: 15px;
+      margin: 15px auto;
+      text-align: center;
+      width: 80%;
+      max-width: 500px;
     }
 
     /* زر الرجوع */
@@ -148,7 +107,8 @@
       font-size: 18px;
       font-weight: bold;
       cursor: pointer;
-      margin-bottom: 30px;
+      margin: 30px auto;
+      display: block;
       transition: 0.3s;
     }
 
@@ -159,31 +119,17 @@
 </head>
 <body>
 
-  <!-- شريط البحث -->
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="ابحث عن كتاب...">
-    <button>🔍 بحث</button>
-  </div>
+  <!-- أيقونة الثلاث شرطات -->
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
-  <!-- تنبيه -->
-  <div id="noResults" class="no-results">❗🚫 لا توجد نتائج مطابقة</div>
-
-  <!-- عرض الشرائح للتصنيفات -->
-  <div class="slideshow" id="slideshow">
-    <div class="category-name active" data-id="adab">📚 الأدب</div>
-    <div class="category-name" data-id="falsafa">🧠 الفلسفة</div>
-    <div class="category-name" data-id="oloom">🔬 العلوم</div>
-    <div class="category-name" data-id="fanon">🎭 الفنون</div>
-    <div class="category-name" data-id="tareekh">🏺 التاريخ</div>
-  </div>
-
-  <!-- النقاط -->
-  <div class="dots" id="dots">
-    <div class="dot active"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
-    <div class="dot"></div>
+  <!-- القائمة الجانبية -->
+  <div id="sideMenu" class="side-menu">
+    <input type="text" id="sideSearch" placeholder="ابحث عن كتاب...">
+    <a href="#" onclick="showBooks('adab')">📚 الأدب</a>
+    <a href="#" onclick="showBooks('falsafa')">🧠 الفلسفة</a>
+    <a href="#" onclick="showBooks('fanon')">🎭 الفنون</a>
+    <a href="#" onclick="showBooks('oloom')">🔬 العلوم</a>
+    <a href="#" onclick="showBooks('tareekh')">🏺 التاريخ</a>
   </div>
 
   <!-- الكتب -->
@@ -191,67 +137,58 @@
     <div class="book">رواية البؤساء</div>
     <div class="book">رواية الجريمة والعقاب</div>
     <div class="book">رواية الأيام</div>
+    <div class="book">رواية الشاعر</div>
   </div>
 
   <div id="falsafa" class="books">
     <div class="book">تأملات ماركوس أوريليوس</div>
     <div class="book">الجمهورية – أفلاطون</div>
-  </div>
-
-  <div id="oloom" class="books">
-    <div class="book">مقدمة في الفيزياء</div>
-    <div class="book">علم الأحياء الحديث</div>
+    <div class="book">الوجود والعدم – سارتر</div>
   </div>
 
   <div id="fanon" class="books">
     <div class="book">فن الرسم الحديث</div>
     <div class="book">تاريخ السينما</div>
+    <div class="book">مدارس الفن التشكيلي</div>
+  </div>
+
+  <div id="oloom" class="books">
+    <div class="book">مقدمة في الفيزياء</div>
+    <div class="book">عجائب الفضاء</div>
+    <div class="book">علم الأحياء الحديث</div>
   </div>
 
   <div id="tareekh" class="books">
     <div class="book">تاريخ الدولة الأموية</div>
+    <div class="book">الحضارة الإسلامية</div>
     <div class="book">العصور الوسطى في أوروبا</div>
   </div>
+
+  <!-- تنبيه -->
+  <div id="noResults" class="no-results">❗🚫 لا توجد نتائج مطابقة</div>
 
   <!-- زر الرجوع -->
   <a href="index.html"><button class="btn-back">⬅ العودة للصفحة الرئيسية</button></a>
 
   <script>
-    // عرض الشرائح
-    const slides = document.querySelectorAll('.category-name');
-    const dots = document.querySelectorAll('.dot');
-    let current = 0;
+    const sideMenu = document.getElementById('sideMenu');
 
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-        dots[i].classList.toggle('active', i === index);
-      });
-      current = index;
+    function toggleMenu() {
+      if (sideMenu.style.width === '250px') {
+        sideMenu.style.width = '0';
+      } else {
+        sideMenu.style.width = '250px';
+      }
     }
 
-    // التنقل التلقائي
-    setInterval(() => {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    }, 3000);
+    function showBooks(id) {
+      document.querySelectorAll('.books').forEach(b => b.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+      sideMenu.style.width = '0'; // تغلق القائمة بعد اختيار التصنيف
+    }
 
-    // عند الضغط على النقاط
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => showSlide(i));
-    });
-
-    // عند الضغط على التصنيف
-    slides.forEach(slide => {
-      slide.addEventListener('click', () => {
-        const id = slide.getAttribute('data-id');
-        document.querySelectorAll('.books').forEach(b => b.style.display = 'none');
-        document.getElementById(id).style.display = 'block';
-      });
-    });
-
-    // البحث
-    const searchInput = document.getElementById("searchInput");
+    // البحث في الكتب
+    const searchInput = document.getElementById("sideSearch");
     const allBooks = document.querySelectorAll(".book");
     const noResults = document.getElementById("noResults");
 
