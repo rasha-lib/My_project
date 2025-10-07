@@ -15,17 +15,17 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
       position: relative;
       padding-bottom: 120px;
     }
 
-    /* الثلاث شرطات */
+    /* الثلاث شرطات الكبيرة باللون الأبيض */
     .menu-btn {
       position: fixed;
       top: 20px;
-      right: 25px;
+ right: 25px;
       width: 50px;
       height: 40px;
       display: flex;
@@ -39,7 +39,7 @@
       display: block;
       height: 6px;
       width: 100%;
-      background-color: #fff;
+      background-color: #fff; /* أبيض */
       border-radius: 3px;
       transition: all 0.3s ease;
     }
@@ -47,7 +47,7 @@
     /* القائمة الجانبية */
     .side-menu {
       height: 100%;
-      width: 300px;
+      width: 300px; /* أوسع */
       position: fixed;
       top: 0;
       right: -300px;
@@ -56,7 +56,7 @@
       transition: 0.4s ease;
       padding-top: 60px;
       box-sizing: border-box;
-      z-index: 1000;
+z-index: 1000;
     }
 
     .side-menu input {
@@ -72,7 +72,7 @@
     .side-menu a {
       padding: 15px 30px;
       text-decoration: none;
-      font-size: 22px;
+      font-size: 22px; /* خط أكبر */
       color: #ffd700;
       display: block;
       transition: background 0.3s;
@@ -83,11 +83,11 @@
       border-radius: 6px;
     }
 
-    /* الإطار الكبير للفقرة */
+ /* الإطار الكبير للفقرة */
     .about-us {
       width: 80%;
       max-width: 900px;
-      min-height: 60vh;
+      height: 60vh;
       background: rgba(128, 0, 0, 0.85);
       border-radius: 12px;
       padding: 40px;
@@ -96,7 +96,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin: 20px 0;
+      margin-bottom: 40px;
     }
 
     .about-us h2 {
@@ -110,41 +110,7 @@
       font-size: 22px;
       line-height: 1.6;
     }
-
-    /* تصنيف الكتب */
-    .category {
-      width: 80%;
-      max-width: 900px;
-      background: rgba(0,0,0,0.6);
-      border-radius: 10px;
-      margin: 20px 0;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-    }
-
-    .category h3 {
-      font-size: 28px;
-      margin-bottom: 15px;
-      color: #ffd700;
-    }
-
-    .category a {
-      display: block;
-      font-size: 20px;
-      color: #fff;
-      text-decoration: none;
-      margin: 5px 0;
-      padding: 8px 12px;
-      border-radius: 6px;
-      background: rgba(128,0,0,0.4);
-      transition: background 0.3s;
-    }
-
-    .category a:hover {
-      background: rgba(128,0,0,0.7);
-    }
-
-    /* زر العودة */
+ /* زر الرجوع أسفل الصفحة */
     .btn-back {
       background-color: #800000;
       color: #fff;
@@ -171,83 +137,35 @@
   <!-- الثلاث شرطات -->
   <div class="menu-btn" onclick="toggleMenu()">
     <span></span>
-    <span></span>
+ <span></span>
     <span></span>
   </div>
 
   <!-- القائمة الجانبية -->
   <div id="sideMenu" class="side-menu">
     <input type="text" placeholder="ابحث عن كتاب...">
-    <a href="#adab">📚 الأدب</a>
-    <!-- قسم الأدب -->
-  <div class="category" id="adab">
-    <h3>الأدب</h3>
-    <a href="books/literature/اداب-العوالم-الرمزية.pdf" target="_blank">📖 العوالم الرمزية</a>
-    <a href="books/literature/رواية-الأيام.pdf" target="_blank">📖 رواية الأيام</a>
-    <a href="books/literature/رواية-الجريمة-والعقاب.pdf" target="_blank">📖 رواية الجريمة والعقاب</a>
+    <a href="#"> الآداب</a>
+    <a href="#"> الفلسفة</a>
+    <a href="#"> الفنون</a>
+    <a href="#"> الشعر</a>
+    <a href="#"> التاريخ</a>
+    <a href="#">استراحة القارى</a>
+     <a href="#"> تكنلوجيا</a>
   </div>
-
-    <a href="#falsafa">🧠 الفلسفة</a>
-    <a href="#fanon">🎭 الفنون</a>
-    <a href="#shi3r">📝 الشعر</a>
-    <a href="#tareekh">🏺 التاريخ</a>
-    <a href="#istiraha">☕ استراحة القارئ</a>
-    <a href="#technology">💻 التكنولوجيا</a>
-  </div>
-
-  <!-- فقرة من نحن -->
+<!-- فقرة من نحن -->
   <div class="about-us">
     <h2>من نحن</h2>
     <p>
       نحن المكتبة الرقمية العربية، منصة متخصصة في توفير مصادر المعرفة العربية بجميع مجالاتها. نسعى لتسهيل الوصول إلى الكتب والمراجع بطريقة رقمية آمنة ومنظمة، مع واجهة حديثة وسهلة الاستخدام. مهمتنا تمكين القارئ العربي من التعلم والبحث والاستفادة من محتوى موثوق دون قيود، مع الحفاظ على تجربة رقمية مريحة وجذابة لجميع الزوار.
     </p>
   </div>
-  <!-- قسم الفلسفة -->
-  <div class="category" id="falsafa">
-    <h3>الفلسفة</h3>
-    <a href="books/philosophy/تأملات-ماركوس.pdf" target="_blank">📖 تأملات ماركوس أوريليوس</a>
-    <a href="books/philosophy/الجمهورية-افلاطون.pdf" target="_blank">📖 الجمهورية – أفلاطون</a>
-  </div>
-
-  <!-- قسم الفنون -->
-  <div class="category" id="fanon">
-    <h3>الفنون</h3>
-    <a href="books/arts/فن-الرسم-الحديث.pdf" target="_blank">📖 فن الرسم الحديث</a>
-    <a href="books/arts/تاريخ-السينما.pdf" target="_blank">📖 تاريخ السينما</a>
-  </div>
-
-  <!-- قسم الشعر -->
-  <div class="category" id="shi3r">
-    <h3>الشعر</h3>
-    <a href="books/poetry/ديوان-المعلقات.pdf" target="_blank">📖 ديوان المعلقات</a>
-  </div>
-
-  <!-- قسم التاريخ -->
-  <div class="category" id="tareekh">
-    <h3>التاريخ</h3>
-    <a href="books/history/تاريخ-الدولة-الأموية.pdf" target="_blank">📖 تاريخ الدولة الأموية</a>
-  </div>
-
-  <!-- قسم استراحة القارئ -->
-  <div class="category" id="istiraha">
-    <h3>استراحة القارئ</h3>
-    <a href="books/relax/قهوة-وكتب.pdf" target="_blank">📖 قهوة وكتب</a>
-  </div>
-
-  <!-- قسم التكنولوجيا -->
-  <div class="category" id="technology">
-    <h3>التكنولوجيا</h3>
-    <a href="books/technology/الذكاء-الاصطناعي.pdf" target="_blank">📖 الذكاء الاصطناعي</a>
-  </div>
-
-  <!-- زر العودة للصفحة الرئيسية -->
+  <!-- زر الرجوع للصفحة الرئيسية -->
   <a href="index.html" class="btn-back">⬅ العودة للصفحة الرئيسية</a>
 
   <script>
     const sideMenu = document.getElementById('sideMenu');
-    const menuBtn = document.querySelector('.menu-btn');
-
-    function toggleMenu() {
+    const menuBtn = document.querySelector('.menu-btn')
+  function toggleMenu() {
       if (sideMenu.style.right === '0px') {
         sideMenu.style.right = '-300px';
       } else {
@@ -257,4 +175,11 @@
 
     // إغلاق القائمة عند الضغط خارجها
     document.addEventListener('click', function(event) {
-      if (!sideMenu.contains(event.target) && !menu
+      if (!sideMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+        sideMenu.style.right = '-300px';
+      }
+    });
+  </script>
+
+</body>
+</html>
