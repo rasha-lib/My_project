@@ -12,6 +12,13 @@
       background-position: center;
       background-repeat: no-repeat;
       color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      padding-bottom: 100px; /* مساحة للزر أسفل الصفحة */
     }
 
     /* الثلاث شرطات */
@@ -63,38 +70,29 @@
       border-radius: 6px;
     }
 
-    /* الكتب */
-    .books {
-      margin: 100px auto 20px auto;
+    /* إطار من نحن */
+    .about-us {
       width: 80%;
-      max-width: 500px;
+      max-width: 600px;
+      background: rgba(128, 0, 0, 0.8); /* خلفية عنابية شبه شفافة */
+      border: 2px solid #ffd700; /* حدود ذهبية */
+      border-radius: 12px;
+      padding: 20px;
+      text-align: right;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      margin-bottom: 40px;
     }
 
-    .book {
-      background: rgba(0,0,0,0.5);
-      border-radius: 6px;
-      padding: 10px;
-      margin: 5px 0;
+    .about-us h2 {
+      color: #ffd700;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .about-us p {
+      color: #fff;
       font-size: 18px;
-      transition: 0.3s;
-    }
-
-    .book:hover {
-      background: rgba(0,0,0,0.7);
-    }
-
-    /* تنبيه */
-    .no-results {
-      display: none;
-      background: rgba(128, 0, 0, 0.85);
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-size: 20px;
-      font-weight: bold;
-      margin: 15px auto;
-      text-align: center;
-      width: 80%;
-      max-width: 500px;
+      line-height: 1.6;
     }
 
     /* زر الرجوع */
@@ -107,9 +105,10 @@
       font-size: 18px;
       font-weight: bold;
       cursor: pointer;
-      margin: 30px auto;
-      display: block;
       transition: 0.3s;
+      text-decoration: none;
+      display: block;
+      text-align: center;
     }
 
     .btn-back:hover {
@@ -119,23 +118,29 @@
 </head>
 <body>
 
-  <!-- أيقونة الثلاث شرطات -->
+  <!-- الثلاث شرطات -->
   <div class="menu-icon" onclick="toggleMenu()">☰</div>
 
   <!-- القائمة الجانبية -->
   <div id="sideMenu" class="side-menu">
-    <input type="text" id="sideSearch" placeholder="ابحث عن كتاب...">
-    <a href="#" onclick="showBooks('adab')">📚 الأدب</a>
-    <a href="#" onclick="showBooks('falsafa')">🧠 الفلسفة</a>
-    <a href="#" onclick="showBooks('fanon')">🎭 الفنون</a>
-    <a href="#" onclick="showBooks('oloom')">🔬 العلوم</a>
-    <a href="#" onclick="showBooks('tareekh')">🏺 التاريخ</a>
+    <input type="text" placeholder="ابحث عن كتاب...">
+    <a href="#">📚 الأدب</a>
+    <a href="#">🧠 الفلسفة</a>
+    <a href="#">🎭 الفنون</a>
+    <a href="#">🔬 العلوم</a>
+    <a href="#">🏺 التاريخ</a>
   </div>
-  <!-- تنبيه -->
-  <div id="noResults" class="no-results">❗🚫 لا توجد نتائج مطابقة</div>
 
-  <!-- زر الرجوع -->
-  <a href="index.html"><button class="btn-back">⬅ العودة للصفحة الرئيسية</button></a>
+  <!-- فقرة من نحن -->
+  <div class="about-us">
+    <h2>من نحن</h2>
+    <p>
+      نحن المكتبة الرقمية العربية، منصة متخصصة في توفير مصادر المعرفة العربية بجميع مجالاتها. نسعى لتسهيل الوصول إلى الكتب والمراجع بطريقة رقمية آمنة ومنظمة، مع واجهة حديثة وسهلة الاستخدام. مهمتنا تمكين القارئ العربي من التعلم والبحث والاستفادة من محتوى موثوق دون قيود، مع الحفاظ على تجربة رقمية مريحة وجذابة لجميع الزوار.
+    </p>
+  </div>
+
+  <!-- زر الرجوع للصفحة الرئيسية -->
+  <a href="index.html" class="btn-back">⬅ العودة للصفحة الرئيسية</a>
 
   <script>
     const sideMenu = document.getElementById('sideMenu');
@@ -147,34 +152,7 @@
         sideMenu.style.width = '250px';
       }
     }
-
-    function showBooks(id) {
-      document.querySelectorAll('.books').forEach(b => b.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
-      sideMenu.style.width = '0'; // تغلق القائمة بعد اختيار التصنيف
-    }
-
-    // البحث في الكتب
-    const searchInput = document.getElementById("sideSearch");
-    const allBooks = document.querySelectorAll(".book");
-    const noResults = document.getElementById("noResults");
-
-    searchInput.addEventListener("input", function() {
-      let value = this.value.toLowerCase();
-      let found = false;
-
-      allBooks.forEach(book => {
-        const text = book.textContent.toLowerCase();
-        if (text.includes(value)) {
-          book.style.display = "block";
-          found = true;
-        } else {
-          book.style.display = "none";
-        }
-      });
-
-      noResults.style.display = (!found && value !== "") ? "block" : "none";
-    });
   </script>
+
 </body>
 </html>
