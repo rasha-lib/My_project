@@ -26,8 +26,8 @@
       position: fixed;
       top: 20px;
       right: 25px;
-      width: 45px;
-      height: 36px;
+      width: 50px;
+      height: 40px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -47,10 +47,10 @@
     /* القائمة الجانبية */
     .side-menu {
       height: 100%;
-      width: 280px; /* أوسع */
+      width: 300px; /* أوسع */
       position: fixed;
       top: 0;
-      right: -280px;
+      right: -300px;
       background-color: rgba(0,0,0,0.95);
       overflow-x: hidden;
       transition: 0.4s ease;
@@ -70,7 +70,7 @@
     }
 
     .side-menu a {
-      padding: 15px 30px; /* مسافة أكبر */
+      padding: 15px 30px;
       text-decoration: none;
       font-size: 22px; /* خط أكبر */
       color: #ffd700;
@@ -118,4 +118,73 @@
       border: none;
       padding: 15px 30px;
       border-radius: 8px;
-      font-size: 20
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .btn-back:hover {
+      background-color: #a00000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- الثلاث شرطات -->
+  <div class="menu-btn" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- القائمة الجانبية -->
+  <div id="sideMenu" class="side-menu">
+    <input type="text" placeholder="ابحث عن كتاب...">
+    <a href="#"> الآداب</a>
+    <a href="#"> الفلسفة</a>
+    <a href="#"> الفنون</a>
+    <a href="#"> الشعر</a>
+    <a href="#"> التاريخ</a>
+    <a href="#">استراحة القارى</a>
+     <a href="#"> تكنلوجيا</a>
+     <a href="#">خيال علمي  </a>
+  </div>
+
+  <!-- فقرة من نحن -->
+  <div class="about-us">
+    <h2>من نحن</h2>
+    <p>
+      نحن المكتبة الرقمية العربية، منصة متخصصة في توفير مصادر المعرفة العربية بجميع مجالاتها. نسعى لتسهيل الوصول إلى الكتب والمراجع بطريقة رقمية آمنة ومنظمة، مع واجهة حديثة وسهلة الاستخدام. مهمتنا تمكين القارئ العربي من التعلم والبحث والاستفادة من محتوى موثوق دون قيود، مع الحفاظ على تجربة رقمية مريحة وجذابة لجميع الزوار.
+    </p>
+  </div>
+
+  <!-- زر الرجوع للصفحة الرئيسية -->
+  <a href="index.html" class="btn-back">⬅ العودة للصفحة الرئيسية</a>
+
+  <script>
+    const sideMenu = document.getElementById('sideMenu');
+    const menuBtn = document.querySelector('.menu-btn');
+
+    function toggleMenu() {
+      if (sideMenu.style.right === '0px') {
+        sideMenu.style.right = '-300px';
+      } else {
+        sideMenu.style.right = '0px';
+      }
+    }
+
+    // إغلاق القائمة عند الضغط خارجها
+    document.addEventListener('click', function(event) {
+      if (!sideMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+        sideMenu.style.right = '-300px';
+      }
+    });
+  </script>
+
+</body>
+</html>
