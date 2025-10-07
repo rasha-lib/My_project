@@ -18,29 +18,42 @@
       justify-content: center;
       align-items: center;
       position: relative;
-      padding-bottom: 120px; /* مساحة كافية للزر أسفل الصفحة */
+      padding-bottom: 120px;
     }
 
-    /* الثلاث شرطات */
-    .menu-icon {
+    /* الثلاث شرطات الكبيرة باللون الأبيض */
+    .menu-btn {
       position: fixed;
       top: 20px;
-      right: 20px;
-      font-size: 30px;
+      right: 25px;
+      width: 45px;
+      height: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       cursor: pointer;
       z-index: 1001;
+    }
+
+    .menu-btn span {
+      display: block;
+      height: 6px;
+      width: 100%;
+      background-color: #fff; /* أبيض */
+      border-radius: 3px;
+      transition: all 0.3s ease;
     }
 
     /* القائمة الجانبية */
     .side-menu {
       height: 100%;
-      width: 0;
+      width: 280px; /* أوسع */
       position: fixed;
       top: 0;
-      right: 0;
+      right: -280px;
       background-color: rgba(0,0,0,0.95);
       overflow-x: hidden;
-      transition: 0.5s;
+      transition: 0.4s ease;
       padding-top: 60px;
       box-sizing: border-box;
       z-index: 1000;
@@ -57,12 +70,12 @@
     }
 
     .side-menu a {
-      padding: 10px 20px;
+      padding: 15px 30px; /* مسافة أكبر */
       text-decoration: none;
-      font-size: 20px;
+      font-size: 22px; /* خط أكبر */
       color: #ffd700;
       display: block;
-      transition: 0.3s;
+      transition: background 0.3s;
     }
 
     .side-menu a:hover {
@@ -70,60 +83,32 @@
       border-radius: 6px;
     }
 
-    /* إطار من نحن أكبر */
-  .about-us {
-  width: 80%;          /* عرض أكبر */
-  max-width: 700px;    /* أقصى عرض */
-  height: 60vh;        /* ارتفاع ثابت نسبي للشاشة */
-  background: rgba(128, 0, 0, 0.85); /* خلفية عنابية داكنة */
-  border-radius: 12px;
-  padding: 30px;
-  text-align: right;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* يركّز النص عموديًا في الصندوق */
-  margin-bottom: 40px;
-}
-
-.about-us h2 {
-  color: #fff;
-  margin-bottom: 20px;
-  font-size: 32px;
-  text-align: center;
-}
-
-.about-us p {
-  color: #fff;
-  font-size: 20px;
-  line-height: 1.6;
-  text-align: center;
-}
-
-
-.about-us h2 {
-  color: #fff;
-  margin-bottom: 20px;
-  font-size: 32px; /* أكبر حجم للعناوين */
-}
-
-.about-us p {
-  color: #fff;
-  font-size: 22px; /* أكبر حجم للنص */
-  line-height: 1.8;
-}
-
+    /* الإطار الكبير للفقرة */
+    .about-us {
+      width: 80%;
+      max-width: 900px;
+      height: 60vh;
+      background: rgba(128, 0, 0, 0.85);
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
 
     .about-us h2 {
-      color: #fff; /* بدون ذهبي */
-      margin-bottom: 15px;
-      font-size: 28px;
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 32px;
     }
 
     .about-us p {
       color: #fff;
-      font-size: 20px;
-      line-height: 1.7;
+      font-size: 22px;
+      line-height: 1.6;
     }
 
     /* زر الرجوع أسفل الصفحة */
@@ -151,7 +136,11 @@
 <body>
 
   <!-- الثلاث شرطات -->
-  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  <div class="menu-btn" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
   <!-- القائمة الجانبية -->
   <div id="sideMenu" class="side-menu">
@@ -163,7 +152,7 @@
     <a href="#">🏺 التاريخ</a>
   </div>
 
-  <!-- فقرة من نحن أكبر -->
+  <!-- فقرة من نحن -->
   <div class="about-us">
     <h2>من نحن</h2>
     <p>
@@ -171,17 +160,17 @@
     </p>
   </div>
 
-  <!-- زر الرجوع للصفحة الرئيسية أسفل الصفحة -->
+  <!-- زر الرجوع للصفحة الرئيسية -->
   <a href="index.html" class="btn-back">⬅ العودة للصفحة الرئيسية</a>
 
   <script>
     const sideMenu = document.getElementById('sideMenu');
 
     function toggleMenu() {
-      if (sideMenu.style.width === '250px') {
-        sideMenu.style.width = '0';
+      if (sideMenu.style.right === '0px') {
+        sideMenu.style.right = '-280px';
       } else {
-        sideMenu.style.width = '250px';
+        sideMenu.style.right = '0px';
       }
     }
   </script>
