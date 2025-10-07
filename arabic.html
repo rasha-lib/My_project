@@ -71,16 +71,35 @@
     }
 
     /* إطار من نحن أكبر */
-   .about-us {
-  width: 95%;
-  max-width: 900px; /* أكبر عرض ممكن */
+  .about-us {
+  width: 80%;          /* عرض أكبر */
+  max-width: 700px;    /* أقصى عرض */
+  height: 60vh;        /* ارتفاع ثابت نسبي للشاشة */
   background: rgba(128, 0, 0, 0.85); /* خلفية عنابية داكنة */
   border-radius: 12px;
-  padding: 40px; /* مساحة أكبر داخل الإطار */
+  padding: 30px;
   text-align: right;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.6); /* ظل أكبر لإبراز الإطار */
-  margin-bottom: 50px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* يركّز النص عموديًا في الصندوق */
+  margin-bottom: 40px;
 }
+
+.about-us h2 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 32px;
+  text-align: center;
+}
+
+.about-us p {
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.6;
+  text-align: center;
+}
+
 
 .about-us h2 {
   color: #fff;
