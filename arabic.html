@@ -3,257 +3,274 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>📚 المكتبة العربية</title>
+  <title>المكتبة الرقمية</title>
   <style>
     body {
-      font-family: "Cairo", sans-serif;
-
-      /* 🎨 ملاحظة:
-         هنا تحطين خلفيتك! اكتبي اسم أو مسار الصورة بدل 'bg.jpg'
-         مثال:
-         background-image: url('my-background.jpg');
-         أو إذا الصورة داخل مجلد:
-         background-image: url('images/my-background.png');
-      */
-      background-image: url(خلفية.jpg);
-
+      margin: 0;
+      height: 100vh;
+      background-image: url('خلفية.jpg'); /* غيّري الاسم حسب صورتك */
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
-margin: 0;
-      padding: 0;
-      color: #222;
+      background-repeat: no-repeat;
+      font-family: "Tahoma", sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
     }
 
-    .overlay {
-      background-color: rgba(255, 255, 255, 0.85);
-      min-height: 100vh;
-      padding: 40px 20px;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #222;
-      font-weight: 700;
-    }
-
-    .search-container {
+    /* شريط البحث */
+    .search-bar {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 15px;
       display: flex;
       justify-content: center;
-      margin-bottom: 30px;
-flex-direction: column;
-      align-items: center;
+      gap: 10px;
+      box-sizing: border-box;
     }
 
-    input[type="text"] {
-      width: 80%;
-      max-width: 400px;
+    .search-bar input {
+      flex: 1;
+      max-width: 500px;
       padding: 10px 15px;
-      font-size: 16px;
-      border: 2px solid #555;
-      border-radius: 8px;
-      outline: none;
-      transition: 0.3s;
-    }
-
-    input[type="text"]:focus {
-      border-color: #000;
-      background-color: #f9f9f9;
-    }
-
-    .loading {
-      display: none;
-      margin-top: 8px;
-      font-size: 14px;
-      color: #555;
-    }
-.no-results {
-      display: none;
-      text-align: center;
-      color: #555;
+      border-radius: 6px;
+      border: none;
       font-size: 18px;
-      margin-top: 15px;
-      background-color: rgba(255,255,255,0.7);
+    }
+
+    .search-bar button {
+      background-color: #800000;
+      color: #f5e0b7;
+      border: none;
       padding: 10px 20px;
-      border-radius: 8px;
-    }
-
-    .home-button {
-      display: inline-block;
-      background-color: rgba(255, 255, 255, 0.6);
-      border: 2px solid #333;
-      color: #222;
-      border-radius: 8px;
-      padding: 10px 18px;
-      font-weight: 600;
-      margin-bottom: 20px;
-      text-decoration: none;
-      transition: 0.3s;
-   }
-
-    .home-button:hover {
-      background-color: rgba(255, 255, 255, 0.9);
-      transform: translateY(-2px);
-    }
-
-    .category {
-      background-color: rgba(255, 255, 255, 0.6);
-      border: 2px solid #333;
-      border-radius: 10px;
-      padding: 15px;
-      margin: 10px auto;
-      width: 90%;
-      max-width: 600px;
-      text-align: center;
-      font-size: 20px;
-      font-weight: 600;
+      border-radius: 6px;
+      font-size: 18px;
       cursor: pointer;
       transition: 0.3s;
     }
 
-    .category:hover {
-      background-color: rgba(255, 255, 255, 0.9);
-  transform: translateY(-3px);
+    .search-bar button:hover {
+      background-color: #a00000;
     }
 
+    /* تصنيفات العرض المتحرك */
+    .slideshow {
+      margin-top: 30px;
+      text-align: center;
+      position: relative;
+      width: 80%;
+      max-width: 500px;
+      height: 150px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 26px;
+      font-weight: bold;
+      transition: 0.8s;
+    }
+
+    .category-name {
+      opacity: 0;
+      position: absolute;
+      transition: opacity 1s;
+    }
+
+    .category-name.active {
+      opacity: 1;
+    }
+
+    /* النقاط أسفل التصنيفات */
+    .dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .dot.active {
+      background-color: #ffd700;
+      transform: scale(1.2);
+    }
+
+    /* الكتب */
     .books {
       display: none;
-      background-color: rgba(255, 255, 255, 0.4);
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      margin: 10px auto 25px;
-      width: 85%;
-      max-width: 550px;
-      padding: 10px 15px;
-      text-align: right;
-      animation: fadeIn 0.4s ease;
+      margin-top: 20px;
+      width: 80%;
+      max-width: 500px;
     }
 
     .book {
-      background-color: rgba(255, 255, 255, 0.7);
+      background: rgba(0,0,0,0.5);
       border: 1px solid #ddd;
       border-radius: 6px;
-      padding: 8px;
+      padding: 10px;
       margin: 5px 0;
-  font-size: 17px;
+      font-size: 18px;
+      transition: 0.3s;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    .book:hover {
+      background: rgba(0,0,0,0.7);
     }
 
-    .hidden {
-      display: none !important;
+    /* تنبيه */
+    .no-results {
+      display: none;
+      background: rgba(128, 0, 0, 0.85);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 15px;
+    }
+
+    /* زر الرجوع */
+    .btn-back {
+      background-color: #800000;
+      color: #f5e0b7;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 30px;
+      transition: 0.3s;
+    }
+
+    .btn-back:hover {
+      background-color: #a00000;
     }
   </style>
 </head>
 <body>
 
-  <div class="overlay">
-    <a href="index.html" class="home-button">🏠 العودة للصفحة الرئيسية</a>
-    <h1>📚 تصنيفات المكتبة العربية</h1>
-
-    <div class="search-container">
-      <input type="text" id="searchInput" placeholder="ابحث عن كتاب أو تصنيف...">
-      <div class="loading">🔎 جاري البحث...</div>
+  <!-- شريط البحث -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="ابحث عن كتاب...">
+    <button>🔍 بحث</button>
   </div>
 
-    <div id="noResults" class="no-results">🚫 لا يوجد نتائج مطابقة</div>
+  <!-- تنبيه -->
+  <div id="noResults" class="no-results">❗🚫 لا توجد نتائج مطابقة</div>
 
-    <!-- التصنيفات -->
-    <div class="category" onclick="toggleBooks('adab')">الأدب</div>
-    <div id="adab" class="books">
-      <div class="book">رواية البؤساء</div>
-      <div class="book">رواية الأيام</div>
-      <div class="book">رواية الشاعر</div>
-    </div>
-
-    <div class="category" onclick="toggleBooks('falsafa')">الفلسفة</div>
-    <div id="falsafa" class="books">
-      <div class="book">تأملات ماركوس أوريليوس</div>
-      <div class="book">الجمهورية – أفلاطون</div>
-      <div class="book">الوجود والعدم – سارتر</div>
-    </div>
- <div class="category" onclick="toggleBooks('fanon')">الفنون</div>
-    <div id="fanon" class="books">
-      <div class="book">تاريخ السينما</div>
-      <div class="book">فن الرسم الحديث</div>
-    </div>
-
-    <div class="category" onclick="toggleBooks('oloom')">العلوم</div>
-    <div id="oloom" class="books">
-      <div class="book">مقدمة في الفيزياء</div>
-      <div class="book">عجائب الفضاء</div>
-      <div class="book">علم الأحياء الحديث</div>
-    </div>
-
-    <div class="category" onclick="toggleBooks('tareekh')">التاريخ</div>
-    <div id="tareekh" class="books">
-      <div class="book">تاريخ الدولة الأموية</div>
-      <div class="book">الحضارة الإسلامية</div>
-      <div class="book">العصور الوسطى</div>
-    </div>
+  <!-- عرض الشرائح للتصنيفات -->
+  <div class="slideshow" id="slideshow">
+    <div class="category-name active" data-id="adab">📚 الأدب</div>
+    <div class="category-name" data-id="falsafa">🧠 الفلسفة</div>
+    <div class="category-name" data-id="oloom">🔬 العلوم</div>
+    <div class="category-name" data-id="fanon">🎭 الفنون</div>
+    <div class="category-name" data-id="tareekh">🏺 التاريخ</div>
   </div>
-<script>
-    function toggleBooks(id) {
-      const all = document.querySelectorAll('.books');
-      all.forEach(div => {
-        if (div.id === id) {
-          div.style.display = div.style.display === 'block' ? 'none' : 'block';
-        } else {
-          div.style.display = 'none';
-        }
+
+  <!-- النقاط -->
+  <div class="dots" id="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <!-- الكتب -->
+  <div id="adab" class="books">
+    <div class="book">رواية البؤساء</div>
+    <div class="book">رواية الجريمة والعقاب</div>
+    <div class="book">رواية الأيام</div>
+  </div>
+
+  <div id="falsafa" class="books">
+    <div class="book">تأملات ماركوس أوريليوس</div>
+    <div class="book">الجمهورية – أفلاطون</div>
+  </div>
+
+  <div id="oloom" class="books">
+    <div class="book">مقدمة في الفيزياء</div>
+    <div class="book">علم الأحياء الحديث</div>
+  </div>
+
+  <div id="fanon" class="books">
+    <div class="book">فن الرسم الحديث</div>
+    <div class="book">تاريخ السينما</div>
+  </div>
+
+  <div id="tareekh" class="books">
+    <div class="book">تاريخ الدولة الأموية</div>
+    <div class="book">العصور الوسطى في أوروبا</div>
+  </div>
+
+  <!-- زر الرجوع -->
+  <a href="index.html"><button class="btn-back">⬅ العودة للصفحة الرئيسية</button></a>
+
+  <script>
+    // عرض الشرائح
+    const slides = document.querySelectorAll('.category-name');
+    const dots = document.querySelectorAll('.dot');
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+        dots[i].classList.toggle('active', i === index);
       });
+      current = index;
     }
 
-    const searchInput = document.getElementById('searchInput');
-    const loading = document.querySelector('.loading');
-    const noResults = document.getElementById('noResults');
-  searchInput.addEventListener('keyup', function () {
-      const term = this.value.trim().toLowerCase();
-      const categories = document.querySelectorAll('.category');
+    // التنقل التلقائي
+    setInterval(() => {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }, 3000);
 
-      loading.style.display = 'inline';
-      setTimeout(() => {
-        loading.style.display = 'none';
+    // عند الضغط على النقاط
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => showSlide(i));
+    });
 
-        let anyVisible = false;
+    // عند الضغط على التصنيف
+    slides.forEach(slide => {
+      slide.addEventListener('click', () => {
+        const id = slide.getAttribute('data-id');
+        document.querySelectorAll('.books').forEach(b => b.style.display = 'none');
+        document.getElementById(id).style.display = 'block';
+      });
+    });
 
-        categories.forEach(cat => {
-          const catName = cat.textContent.toLowerCase();
-          const relatedBooks = document.getElementById(cat.getAttribute('onclick').match(/'([^']+)'/)[1]);
-          const books = relatedBooks.querySelectorAll('.book');
+    // البحث
+    const searchInput = document.getElementById("searchInput");
+    const allBooks = document.querySelectorAll(".book");
+    const noResults = document.getElementById("noResults");
 
-          let foundInCat = catName.includes(term);
-          let foundInBooks = false;
+    searchInput.addEventListener("input", function() {
+      let value = this.value.toLowerCase();
+      let found = false;
 
-          books.forEach(book => {
-            const bookName = book.textContent.toLowerCase();
-            if (bookName.includes(term)) {
-              foundInBooks = true;
-     }
-          });
+      allBooks.forEach(book => {
+        const text = book.textContent.toLowerCase();
+        if (text.includes(value)) {
+          book.style.display = "block";
+          found = true;
+        } else {
+          book.style.display = "none";
+        }
+      });
 
-          if (term === "") {
-            cat.classList.remove('hidden');
-            relatedBooks.style.display = 'none';
-          } else if (foundInCat || foundInBooks) {
-            cat.classList.remove('hidden');
-            relatedBooks.style.display = 'block';
-            anyVisible = true;
-          } else {
-            cat.classList.add('hidden');
-            relatedBooks.style.display = 'none';
-          }
-        });
-
-        noResults.style.display = anyVisible ? 'none' : 'block';
-      }, 300);
+      noResults.style.display = (!found && value !== "") ? "block" : "none";
     });
   </script>
-
 </body>
 </html>
-
