@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>قسم الآداب</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Tahoma", sans-serif;
+      background-color: #f5f5f5;
+      text-align: center;
+      color: #333;
+    }
+
+    h1 {
+      background-color: #800000;
+      color: white;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .books-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      padding: 40px;
+    }
+
+    .book {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      width: 250px;
+      transition: transform 0.3s;
+    }
+
+    .book:hover {
+      transform: scale(1.05);
+    }
+
+    .book img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+
+    .book-title {
+      padding: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .book a {
+      display: block;
+      background-color: #800000;
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+
+    .book a:hover {
+      background-color: #a00000;
+    }
+
+    .btn-back {
+      display: inline-block;
+      background-color: #800000;
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      transition: background 0.3s;
+    }
+
+    .btn-back:hover {
+      background-color: #a00000;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>قسم الآداب</h1>
+
+  <div class="books-container">
+    <!-- كتاب المقدمة الخلدونية -->
+    <div class="book">
+      <img src="صورة واتساب بتاريخ 1447-04-17 في 10.12.23_49926a1e.jpg" alt="غلاف المقدمة الخلدونية">
+      <div class="book-title">المقدمة الخلدونية</div>
+      <a href="المقدمة_الخلدونية.pdf" target="_blank">📖 قراءة الكتاب</a>
+    </div>
+  </div>
+
+  <a href="index.html" class="btn-back">⬅ العودة للصفحة الرئيسية</a>
+
+</body>
+</html>
