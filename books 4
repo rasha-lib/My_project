@@ -60,4 +60,59 @@
       color: white;
       text-decoration: none;
       padding: 12px;
-      font-size
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    .book a:hover {
+      background-color: #a00000;
+    }
+
+    .btn-back {
+      display: inline-block;
+      margin: 50px auto;
+      background-color: #800000;
+      color: white;
+      padding: 14px 30px;
+      border-radius: 8px;
+      font-size: 20px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn-back:hover {
+      background-color: #a00000;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>المكتبة الرقمية</h1>
+
+  <div class="books-container" id="booksContainer"></div>
+
+  <a href="index.html" class="btn-back">⬅ العودة للصفحة الرئيسية</a>
+
+  <script>
+    // هنا تضيفي كل كتاب جديد
+    const books = [
+      {title: "المقدمة الخلدونية", file: "books/almuqaddima.pdf", img: "books/almuqaddima.jpg"},
+      {title: "كتاب آخر", file: "books/another_book.pdf", img: "books/another_book.jpg"}
+    ];
+
+    const container = document.getElementById("booksContainer");
+
+    books.forEach(book => {
+      const bookDiv = document.createElement("div");
+      bookDiv.className = "book";
+      bookDiv.innerHTML = `
+        <img src="${خلفية.jpg}" alt="غلاف ${book.title}">
+        <div class="book-title">${book.title}</div>
+        <a href="${book.file}" target="_blank">📖 قراءة الكتاب</a>
+      `;
+      container.appendChild(bookDiv);
+    });
+  </script>
+
+</body>
+</html>
