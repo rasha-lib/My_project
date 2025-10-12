@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>قسم الآداب</title>
+  <title>المكتبة الرقمية</title>
   <style>
     body {
       margin: 0;
@@ -22,17 +22,17 @@
 
     .books-container {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      margin-top: 60px;
+      margin: 60px 0;
+      gap: 30px;
     }
 
     .book {
       background: white;
       border-radius: 16px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-      width: 300px;
+      width: 250px;
       overflow: hidden;
       transition: transform 0.3s;
     }
@@ -43,13 +43,13 @@
 
     .book img {
       width: 100%;
-      height: 420px;
+      height: 350px;
       object-fit: cover;
     }
 
     .book-title {
       padding: 15px;
-      font-size: 22px;
+      font-size: 18px;
       font-weight: bold;
       color: #222;
     }
@@ -60,7 +60,7 @@
       color: white;
       text-decoration: none;
       padding: 12px;
-      font-size: 18px;
+      font-size: 16px;
       transition: background 0.3s;
     }
 
@@ -87,18 +87,32 @@
 </head>
 <body>
 
-  <h1>قسم الآداب</h1>
+  <h1>المكتبة الرقمية</h1>
 
-  <div class="books-container">
-    <!-- كتاب المقدمة الخلدونية -->
-    <div class="book">
-      <img src="almuqaddima.jpg" alt="غلاف المقدمة الخلدونية">
-      <div class="book-title">المقدمة الخلدونية</div>
-      <a href="المقدمة_الخلدونية.pdf" target="_blank">📖 قراءة الكتاب</a>
-    </div>
-  </div>
+  <div class="books-container" id="booksContainer"></div>
 
   <a href="index.html" class="btn-back">⬅ العودة للصفحة الرئيسية</a>
+
+  <script>
+    // هنا تضيفي كل كتاب جديد
+    const books = [
+      {title: "المقدمة الخلدونية", file: "books/almuqaddima.pdf", img: "books/almuqaddima.jpg"},
+      {title: "كتاب آخر", file: "books/another_book.pdf", img: "books/another_book.jpg"}
+    ];
+
+    const container = document.getElementById("booksContainer");
+
+    books.forEach(book => {
+      const bookDiv = document.createElement("div");
+      bookDiv.className = "book";
+      bookDiv.innerHTML = `
+        <img src="${خلفية.jpg}" alt="غلاف ${book.title}">
+        <div class="book-title">${book.title}</div>
+        <a href="${book.file}" target="_blank">📖 قراءة الكتاب</a>
+      `;
+      container.appendChild(bookDiv);
+    });
+  </script>
 
 </body>
 </html>
