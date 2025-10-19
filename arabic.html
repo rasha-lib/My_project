@@ -7,7 +7,7 @@
     body {
       margin: 0;
       font-family: "Tahoma", sans-serif;
-      background-image: url('خلفية.jpg'); /* غيّري الاسم حسب صورتك */
+      background-image: url('خلفية.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -21,11 +21,10 @@
       padding-bottom: 120px;
     }
 
-    /* الثلاث شرطات الكبيرة باللون الأبيض */
     .menu-btn {
       position: fixed;
       top: 20px;
- right: 25px;
+      right: 25px;
       width: 50px;
       height: 40px;
       display: flex;
@@ -39,15 +38,14 @@
       display: block;
       height: 6px;
       width: 100%;
-      background-color: #fff; /* أبيض */
+      background-color: #fff;
       border-radius: 3px;
       transition: all 0.3s ease;
     }
 
-    /* القائمة الجانبية */
     .side-menu {
       height: 100%;
-      width: 300px; /* أوسع */
+      width: 300px;
       position: fixed;
       top: 0;
       right: -300px;
@@ -56,12 +54,12 @@
       transition: 0.4s ease;
       padding-top: 60px;
       box-sizing: border-box;
-z-index: 1000;
+      z-index: 1000;
     }
 
     .side-menu input {
       width: 80%;
-      margin: 10px auto 20px auto;
+      margin: 10px auto 10px auto;
       display: block;
       padding: 10px;
       font-size: 16px;
@@ -72,7 +70,7 @@ z-index: 1000;
     .side-menu a {
       padding: 15px 30px;
       text-decoration: none;
-      font-size: 22px; /* خط أكبر */
+      font-size: 22px;
       color: #ffd700;
       display: block;
       transition: background 0.3s;
@@ -83,7 +81,14 @@ z-index: 1000;
       border-radius: 6px;
     }
 
- /* الإطار الكبير للفقرة */
+    .no-result {
+      text-align: center;
+      color: #ff6666;
+      font-size: 20px;
+      margin-top: 20px;
+      display: none;
+    }
+
     .about-us {
       width: 80%;
       max-width: 900px;
@@ -110,7 +115,7 @@ z-index: 1000;
       font-size: 22px;
       line-height: 1.6;
     }
- /* زر الرجوع أسفل الصفحة */
+
     .btn-back {
       background-color: #800000;
       color: #fff;
@@ -137,41 +142,70 @@ z-index: 1000;
   <!-- الثلاث شرطات -->
   <div class="menu-btn" onclick="toggleMenu()">
     <span></span>
- <span></span>
+    <span></span>
     <span></span>
   </div>
 
   <!-- القائمة الجانبية -->
   <div id="sideMenu" class="side-menu">
-    <input type="text" placeholder="ابحث عن كتاب...">
-    <a href="adab.html"> الآداب</a>
-    <a href="#"> الفلسفة</a>
-    <a href="#"> الفنون</a>
-    <a href="#"> الشعر</a>
-    <a href="#"> التاريخ</a>
+    <input id="searchInput" type="text" placeholder="ابحث عن كتاب...">
+    <a href="adab.html">الآداب</a>
+    <a href="#">الفلسفة</a>
+    <a href="#">الفنون</a>
+    <a href="#">الشعر</a>
+    <a href="#">التاريخ</a>
     <a href="#">استراحة القارى</a>
-     <a href="#"> تكنلوجيا</a>
+    <a href="#">تكنلوجيا</a>
+    <div id="noResult" class="no-result">⚠️ الكتاب غير متوفر</div>
   </div>
-<!-- فقرة من نحن -->
+
+  <!-- فقرة من نحن -->
   <div class="about-us">
     <h2>من نحن</h2>
     <p>
       نحن المكتبة الرقمية العربية، منصة متخصصة في توفير مصادر المعرفة العربية بجميع مجالاتها. نسعى لتسهيل الوصول إلى الكتب والمراجع بطريقة رقمية آمنة ومنظمة، مع واجهة حديثة وسهلة الاستخدام. مهمتنا تمكين القارئ العربي من التعلم والبحث والاستفادة من محتوى موثوق دون قيود، مع الحفاظ على تجربة رقمية مريحة وجذابة لجميع الزوار.
     </p>
   </div>
+
   <!-- زر الرجوع للصفحة الرئيسية -->
   <a href="index.html" class="btn-back">⬅ العودة للصفحة الرئيسية</a>
 
   <script>
     const sideMenu = document.getElementById('sideMenu');
-    const menuBtn = document.querySelector('.menu-btn')
-  function toggleMenu() {
+    const menuBtn = document.querySelector('.menu-btn');
+    const searchInput = document.getElementById('searchInput');
+    const links = sideMenu.querySelectorAll('a');
+    const noResult = document.getElementById('noResult');
+
+    function toggleMenu() {
       if (sideMenu.style.right === '0px') {
         sideMenu.style.right = '-300px';
       } else {
         sideMenu.style.right = '0px';
       }
     }
+
+    // البحث عن كتاب
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim().toLowerCase();
+      let found = false;
+
+      links.forEach(link => {
+        if (link.textContent.toLowerCase().includes(query) || query === '') {
+          link.style.display = 'block';
+        } else {
+          link.style.display = 'none';
+        }
+      });
+
+      if (query !== '') {
+        found = Array.from(links).some(link =>
+          link.textContent.toLowerCase().includes(query)
+        );
+      }
+
+      noResult.style.display = found || query === '' ? 'none' : 'block';
+    });
 
     // إغلاق القائمة عند الضغط خارجها
     document.addEventListener('click', function(event) {
