@@ -7,7 +7,7 @@
     body {
       margin: 0;
       font-family: "Tahoma", sans-serif;
-      background-image: url('خلفية.jpg');
+      background-image: url('خلفية.jpg'); /* غيّري الاسم حسب خلفيتك */
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
@@ -15,8 +15,7 @@
       direction: rtl;
       color: #222;
     }
-
-    header {
+header {
       background-color: rgba(255, 255, 255, 0.9);
       text-align: center;
       padding: 20px;
@@ -25,34 +24,12 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    /* شريط البحث */
-    .search-bar {
-      width: 80%;
-      max-width: 400px;
-      display: block;
-      margin: 25px auto 10px auto;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 18px;
-      text-align: center;
-    }
-
-    /* رسالة عند عدم وجود الكتاب */
-    .no-result {
-      text-align: center;
-      color: #d00000;
-      font-size: 20px;
-      display: none;
-      margin-bottom: 20px;
-    }
-
     .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       padding: 30px;
-      gap: 25px;
+  gap: 25px;
     }
 
     .book-card {
@@ -60,12 +37,11 @@
       border-radius: 12px;
       width: 230px;
       text-align: center;
-      padding: 15px;
+padding: 15px;
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s ease;
     }
-
-    .book-card:hover {
+ .book-card:hover {
       transform: scale(1.05);
     }
 
@@ -75,8 +51,7 @@
       object-fit: cover;
       border-radius: 10px;
     }
-
-    .book-card h3 {
+ .book-card h3 {
       margin: 10px 0 5px;
       font-size: 18px;
       color: #222;
@@ -86,35 +61,13 @@
       display: inline-block;
       background-color: #0077cc;
       color: #fff;
-      padding: 8px 15px;
+ padding: 8px 15px;
       border-radius: 6px;
       text-decoration: none;
       margin-top: 10px;
     }
-
-    .book-card a:hover {
+  .book-card a:hover {
       background-color: #005fa3;
-    }
-
-    /* زر العودة */
-    .btn-back {
-      display: block;
-      width: fit-content;
-      margin: 40px auto;
-      background-color: #800000;
-      color: #fff;
-      border: none;
-      padding: 15px 30px;
-      border-radius: 8px;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .btn-back:hover {
-      background-color: #a00000;
     }
   </style>
 </head>
@@ -122,10 +75,25 @@
 
   <header>📚 قسم الأدب</header>
 
-  <!-- شريط البحث -->
-  <input type="text" id="searchInput" class="search-bar" placeholder="ابحث عن كتاب...">
-  <div id="noResult" class="no-result">⚠️ الكتاب غير متوفر</div>
-
-  <div class="container" id="bookContainer">
-    <!-- الكتاب الأول -->
+ <div class="container">
+    <!-- نموذج الكتاب -->
     <div class="book-card">
+      <img src="غلاف.jpg" alt="غلاف الكتاب">
+      <h3>الإعداد والأنتحال </h3>
+      <a href="الإعداد_والانتحال.pdf
+" target="_blank">📖 قراءة</a>
+</div>
+<!-- الكتاب الثاني -->
+<div class="book-card">
+  <img src="غلاف 3.jpg" alt="غلاف حب الحياة">
+  <h3>حُب الحياة</h3>
+  <a href="حُب_الحياة.pdf" target="_blank">📖 قراءة</a>
+</div>
+   <!-- الكتاب الثالث -->
+   <div class="book-card">
+       <img src="غلاف2.jpg" alt="غلاف حب الحياة">
+     <h3>فن الأدب</h3>
+      <a href="فن_الأدب.pdf" target="_blank">📖 قراءة</a>
+</div>
+</body>
+</html>
