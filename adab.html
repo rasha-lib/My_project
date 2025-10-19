@@ -21,28 +21,22 @@
       padding: 20px;
       font-size: 45px;
       font-weight: bold;
-      color: white;
+  color: white;
       position: relative;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
-  <!-- الثلاث شرطات -->
-  <div class="menu-btn" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
 
-  <!-- القائمة الجانبية -->
-  <div id="sideMenu" class="side-menu">
-    <a href="adab.html">الآداب</a>
-    <a href="#">الفلسفة</a>
-    <a href="#">الفنون</a>
-    <a href="#">الشعر</a>
-    <a href="#">التاريخ</a>
-    <a href="#">استراحة القارئ</a>
-    <a href="#">تكنولوجيا</a>
-  </div>
-</script>
+    /* زر الشرطات */
+    .menu-btn {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      font-size: 35px;
+      cursor: pointer;
+      color: white;
+      transition: transform 0.2s;
+    }
+
     .menu-btn:hover {
       transform: scale(1.15);
     }
@@ -51,7 +45,7 @@
     .side-menu {
       height: 100%;
       width: 0;
-      position: fixed;
+  position: fixed;
       z-index: 10;
       top: 0;
       right: 0;
@@ -72,7 +66,7 @@
 
     .side-menu a:hover {
       background-color: rgba(255,255,255,0.1);
-    }
+  }
 
     .side-menu input {
       width: 80%;
@@ -83,7 +77,7 @@
       font-size: 16px;
       background-color: rgba(255,255,255,0.2);
       color: white;
-      text-align: right;
+  text-align: right;
     }
 
     .close-btn {
@@ -99,7 +93,7 @@
     .search-bar {
       text-align: center;
       margin: 20px auto;
-      width: 100%; /* تقريبًا يغطي الصفحة كلها */
+      width: 100%;
     }
 
     .search-bar input {
@@ -107,8 +101,8 @@
       padding: 30px;
       border: none;
       border-radius: 10px;
-      font-size: 20px; /* كبرنا الخط */
-      background-color: rgba(0, 0, 0, 0.6); /* شفاف غامق */
+      font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
       color: white;
       text-align: right;
       box-sizing: border-box;
@@ -131,8 +125,7 @@
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s ease;
     }
-
-    .book-card:hover {
+  .book-card:hover {
       transform: scale(1.05);
     }
 
@@ -155,7 +148,7 @@
       color: #fff;
       padding: 8px 15px;
       border-radius: 6px;
-      text-decoration: none;
+  text-decoration: none;
       margin-top: 10px;
     }
 
@@ -163,7 +156,6 @@
       background-color: #005fa3;
     }
 
-    /* رسالة الخطأ */
     #notFound {
       display: none;
       text-align: center;
@@ -172,7 +164,6 @@
       margin-top: 20px;
     }
 
-    /* زر العودة */
     .back-btn {
       display: block;
       width: fit-content;
@@ -182,7 +173,7 @@
       padding: 15px 30px;
       border-radius: 8px;
       text-decoration: none;
-      font-size: 20px;
+  font-size: 20px;
     }
 
     .back-btn:hover {
@@ -193,23 +184,23 @@
 <body>
 
   <header>
-   قسم الأدب
-    <span class="menu-btn" "openMenu()">☰
+    قسم الأدب
+    <span class="menu-btn" onclick="openMenu()">☰</span>
   </header>
+
   <!-- القائمة الجانبية -->
   <div id="sideMenu" class="side-menu">
     <span class="close-btn" onclick="closeMenu()">×</span>
     <input type="text" placeholder="ابحث عن كتاب...">
     <a href="adab.html">الآداب</a>
-    <a href="#">الفلسفة</a>
-    <a href="#">الفنون</a>
-    <a href="#">الشعر</a>
-    <a href="#">التاريخ</a>
-    <a href="#">استراحة القارئ</a>
-    <a href="#">تكنولوجيا</a>
+    <a href="falsafa.html">الفلسفة</a>
+    <a href="fanon.html">الفنون</a>
+    <a href="she3r.html">الشعر</a>
+    <a href="tarikh.html">التاريخ</a>
+    <a href="istiraha.html">استراحة القارئ</a>
+    <a href="tech.html">تكنولوجيا</a>
   </div>
-
-  <!-- شريط البحث -->
+<!-- شريط البحث -->
   <div class="search-bar">
     <input type="text" id="searchInput" placeholder="ابحث عن كتاب...">
   </div>
@@ -232,11 +223,10 @@
     <div class="book-card">
       <img src="غلاف2.jpg" alt="غلاف فن الأدب">
       <h3>فن الأدب</h3>
-      <a href="فن_الأدب.pdf" target="_blank">📖 قراءة</a>
+<a href="فن_الأدب.pdf" target="_blank">📖 قراءة</a>
     </div>
   </div>
 
-  <!-- زر العودة -->
   <a href="arabic.html" class="back-btn"> العودة للصفحة العربية</a>
 
   <script>
@@ -251,7 +241,7 @@
     }
 
     // البحث عن الكتب
-    const searchInput = document.getElementById('searchInput');
+  const searchInput = document.getElementById('searchInput');
     const books = document.querySelectorAll('.book-card');
     const notFound = document.getElementById('notFound');
 
@@ -271,6 +261,5 @@
       notFound.style.display = (query && !found) ? 'block' : 'none';
     });
   </script>
-
 </body>
 </html>
