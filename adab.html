@@ -7,7 +7,7 @@
     body {
       margin: 0;
       font-family: "Tahoma", sans-serif;
-      background-image: url('خلفية.jpg'); /* غيّري الاسم حسب خلفيتك */
+      background-image: url('خلفية.jpg');
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
@@ -15,21 +15,34 @@
       direction: rtl;
       color: #222;
     }
- header {
+
+    header {
       background-color: rgba(255, 255, 255, 0.9);
       text-align: center;
-      padding: 20px;
+      padding: 20px 10px 10px;
       font-size: 28px;
       font-weight: bold;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    /* شريط البحث */
+    #searchBar {
+      width: 60%;
+      max-width: 400px;
+      padding: 10px;
+      border: 2px solid #0077cc;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-top: 10px;
     }
 
     .container {
-   display: flex;
+      display: flex;
       flex-wrap: wrap;
       justify-content: center;
       padding: 30px;
-  gap: 25px;
+      gap: 25px;
     }
 
     .book-card {
@@ -41,7 +54,8 @@
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s ease;
     }
- .book-card:hover {
+
+    .book-card:hover {
       transform: scale(1.05);
     }
 
@@ -51,8 +65,9 @@
       object-fit: cover;
       border-radius: 10px;
     }
- .book-card h3 {
- margin: 10px 0 5px;
+
+    .book-card h3 {
+      margin: 10px 0 5px;
       font-size: 18px;
       color: #222;
     }
@@ -63,37 +78,211 @@
       color: #fff;
       padding: 8px 15px;
       border-radius: 6px;
-  text-decoration: none;
+      text-decoration: none;
       margin-top: 10px;
     }
-  .book-card a:hover {
+
+    .book-card a:hover {
+      background-color: #005fa3;
+    }
+
+    /* رسالة "الكتاب غير متوفر" */
+    .not-found {
+      display: none;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
+      color: red;
+      margin-top: 50px;
+    }
+
+    /* الثلاث شرطات */
+    .menu-btn {
+      position: fixed;
+      top: 20px;
+      right: 25px;
+      width: 45px;
+      height: 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .menu-btn span {
+      display: block;
+      height: 5px;
+      width: 100%;
+      background-color: #000;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    /* القائمة الجانبية */
+    .side-menu {
+      height: 100%;
+      width: 300px;
+      position: fixed;
+      top: 0;
+      right: -300px;
+      background-color: rgba(0,0,0,0.95);
+      overflow-x: hidden;
+      transition: 0.4s ease;
+      padding-top: 60px;
+      box-sizing: border-box;
+      z-index: 1000;
+    }
+
+    .side-menu input {
+      width: 80%;
+      margin: 10px auto 20px auto;
+      display: block;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+    }
+
+    .side-menu a {
+      padding: 15px 30px;
+      text-decoration: none;
+      font-size: 22px;
+      color: #ffd700;
+      display: block;
+      transition: background 0.3s;
+    }
+
+    .side-menu a:hover {
+      background-color: rgba(128,0,0,0.7);
+      border-radius: 6px;
+    }
+
+    /* زر العودة */
+    .back-btn {
+      display: block;
+      text-align: center;
+      margin: 40px auto;
+      background-color: #0077cc;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      width: fit-content;
+    }
+
+    .back-btn:hover {
       background-color: #005fa3;
     }
   </style>
 </head>
 <body>
 
-  <header>📚 قسم الأدب</header>
+  <!-- الثلاث شرطات -->
+  <div class="menu-btn" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
- <div class="container">
-    <!-- نموذج الكتاب -->
+  <!-- القائمة الجانبية -->
+  <div id="sideMenu" class="side-menu">
+    <input type="text" placeholder="ابحث عن كتاب...">
+    <a href="adab.html">الآداب</a>
+    <a href="#">الفلسفة</a>
+    <a href="#">الفنون</a>
+    <a href="#">الشعر</a>
+    <a href="#">التاريخ</a>
+    <a href="#">استراحة القارئ</a>
+    <a href="#">تكنولوجيا</a>
+  </div>
+
+  <!-- العنوان -->
+  <header>
+    📚 قسم الأدب
+    <br>
+    <input type="text" id="searchBar" placeholder="ابحث عن كتاب...">
+  </header>
+
+  <!-- الكتب -->
+  <div class="container" id="booksContainer">
     <div class="book-card">
-      <img src="غلاف.jpg" alt="غلاف الكتاب">
-      <h3>الإعداد والأنتحال </h3>
-      <a href="الإعداد_والانتحال.pdf
-" target="_blank">📖 قراءة</a>
-</div>
-<!-- الكتاب الثاني -->
-<div class="book-card">
-  <img src="غلاف 3.jpg" alt="غلاف حب الحياة">
-  <h3>حُب الحياة</h3>
-  <a href="حُب_الحياة.pdf" target="_blank">📖 قراءة</a>
-</div>
-   <!-- الكتاب الثالث -->
-   <div class="book-card">
-       <img src="غلاف2.jpg" alt="غلاف حب الحياة">
-     <h3>فن الأدب</h3>
-      <a href="فن_الأدب.pdf" target="_blank">📖 قراءة</a>
-</div>
+      <img src="غلاف.jpg" alt="غلاف الإعداد والانتحال">
+      <h3>الإعداد والانتحال</h3>
+      <a href="الإعداد_والانتحال.pdf" target="_blank">📖 قراءة</a>
+    </div>
+
+    <div class="book-card">
+      <img src="غلاف 3.jpg" alt="غلاف حب الحياة">
+      <h3>حب الحياة</h3>
+      <a href="حب_الحياة.pdf" target="_blank">📖 قراءة</a>
+    </div>
+
+    <div class="book-card">
+      <img src="غلاف2.jpg" alt="غلاف فن الأدب">
+      <h3>فن الأدب</h3>
+      <a href="فن_الأدب.pdf" target="_blank">📖 قراءة</a>
+    </div>
+  </div>
+
+  <!-- رسالة في حال الكتاب غير متوفر -->
+  <div class="not-found" id="notFound">❌ الكتاب غير متوفر</div>
+
+  <!-- زر العودة -->
+  <a href="index.html" class="back-btn">⬅️ العودة للصفحة الرئيسية</a>
+
+  <script>
+    // فتح وإغلاق القائمة الجانبية
+    const sideMenu = document.getElementById('sideMenu');
+    const menuBtn = document.querySelector('.menu-btn');
+
+    function toggleMenu() {
+      if (sideMenu.style.right === '0px') {
+        sideMenu.style.right = '-300px';
+      } else {
+        sideMenu.style.right = '0px';
+      }
+    }
+
+    document.addEventListener('click', function(event) {
+      if (!sideMenu.contains(event.target) && !menuBtn.contains(event.target)) {
+        sideMenu.style.right = '-300px';
+      }
+    });
+
+    // البحث عن الكتب
+    const searchBar = document.getElementById("searchBar");
+    const bookCards = document.querySelectorAll(".book-card");
+    const notFound = document.getElementById("notFound");
+
+    searchBar.addEventListener("input", function() {
+      const query = this.value.trim().toLowerCase();
+      let found = false;
+
+      bookCards.forEach(card => {
+        const title = card.querySelector("h3").textContent.toLowerCase();
+        if (title.includes(query)) {
+          card.style.display = "block";
+          found = true;
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      // إذا لم يُعثر على أي كتاب
+      if (!found && query !== "") {
+        notFound.style.display = "block";
+      } else {
+        notFound.style.display = "none";
+      }
+
+      // إذا حذف المستخدم النص يرجع كل الكتب
+      if (query === "") {
+        bookCards.forEach(card => card.style.display = "block");
+        notFound.style.display = "none";
+      }
+    });
+  </script>
+
 </body>
 </html>
