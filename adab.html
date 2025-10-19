@@ -25,18 +25,21 @@
       position: relative;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
+   <!-- زر القائمة (ثلاث شرطات) -->
+<span class="menu-btn" onclick="toggleMenu()">☰</span>
 
-    /* زر القائمة (ثلاث شرطات) */
-    .menu-btn {
-      position: absolute;
-      right: 25px;
-      top: 10px;
-      font-size: 70px; /* كبرنا حجم الشرطات */
-      cursor: pointer;
-      color: white;
-      user-select: none;
-      transition: transform 0.2s;
+<script>
+  const sideMenu = document.getElementById('sideMenu');
+
+  function toggleMenu() {
+    if (sideMenu.style.width === '250px') {
+      sideMenu.style.width = '0';
+    } else {
+      sideMenu.style.width = '250px';
     }
+  }
+</script>
+
 
     .menu-btn:hover {
       transform: scale(1.15);
