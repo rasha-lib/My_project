@@ -30,11 +30,17 @@
     /* زر القائمة (ثلاث شرطات) */
     .menu-btn {
       position: absolute;
-      right: 20px;
-      top: 15px;
-      font-size: 26px;
+      right: 25px;
+      top: 10px;
+      font-size: 38px; /* كبرنا حجم الشرطات */
       cursor: pointer;
       color: white;
+      user-select: none;
+      transition: transform 0.2s;
+    }
+
+    .menu-btn:hover {
+      transform: scale(1.15);
     }
 
     /* القائمة الجانبية */
@@ -80,7 +86,7 @@
       position: absolute;
       top: 10px;
       right: 25px;
-      font-size: 30px;
+      font-size: 36px;
       cursor: pointer;
       color: white;
     }
@@ -88,18 +94,20 @@
     /* شريط البحث أعلى الصفحة */
     .search-bar {
       text-align: center;
-      margin: 15px 0;
+      margin: 20px auto;
+      width: 95%; /* تقريبًا يغطي الصفحة كلها */
     }
 
     .search-bar input {
-      width: 80%;
-      padding: 12px;
+      width: 100%;
+      padding: 16px;
       border: none;
-      border-radius: 8px;
-      font-size: 17px;
-      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      font-size: 20px; /* كبرنا الخط */
+      background-color: rgba(0, 0, 0, 0.6); /* شفاف غامق */
       color: white;
       text-align: right;
+      box-sizing: border-box;
     }
 
     .container {
