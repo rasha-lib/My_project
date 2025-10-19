@@ -29,78 +29,6 @@
       cursor: pointer;
       z-index: 1001;
     }
-     .menu-btn span {
-      display: block;
-      height: 6px;
-      width: 100%;
-      background-color: #fff; /* أبيض */
-      border-radius: 3px;
-      transition: all 0.3s ease;
-    }
-
-    /* القائمة الجانبية */
-    .side-menu {
-      height: 100%;
-      width: 300px; /* أوسع */
-      position: fixed;
-      top: 0;
-      right: -300px;
-      background-color: rgba(0,0,0,0.95);
-      overflow-x: hidden;
-      transition: 0.4s ease;
-      padding-top: 60px;
-      box-sizing: border-box;
-z-index: 1000;
-    }
-  .side-menu input {
-      width: 80%;
-      margin: 10px auto 20px auto;
-      display: block;
-      padding: 10px;
-      font-size: 16px;
-      border-radius: 6px;
-      border: none;
-    }
-
-    .side-menu a {
-      padding: 15px 30px;
-      text-decoration: none;
-      font-size: 22px; /* خط أكبر */
-      color: #ffd700;
-      display: block;
-      transition: background 0.3s;
-    }
-
-    .side-menu a:hover {
-      background-color: rgba(128,0,0,0.7);
-      border-radius: 6px;
-    }
-/* الإطار الكبير للفقرة */
-    .about-us {
-      width: 80%;
-      max-width: 900px;
-      height: 60vh;
-      background: rgba(128, 0, 0, 0.85);
-      border-radius: 12px;
-      padding: 40px;
-      text-align: center;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.6);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
- .about-us h2 {
-      color: #fff;
-      margin-bottom: 20px;
-      font-size: 32px;
-    }
-
-    .about-us p {
-      color: #fff;
-      font-size: 22px;
-      line-height: 1.6;
-    }
  /* زر الرجوع أسفل الصفحة */
     .btn-back {
       background-color: #800000;
@@ -130,7 +58,6 @@ z-index: 1000;
  <span></span>
     <span></span>
   </div>
-
   <!-- القائمة الجانبية -->
   <div id="sideMenu" class="side-menu">
     <input type="text" placeholder="ابحث عن كتاب...">
@@ -150,7 +77,6 @@ header {
       font-weight: bold;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-
     .container {
       display: flex;
       flex-wrap: wrap;
@@ -158,7 +84,6 @@ header {
       padding: 30px;
   gap: 25px;
     }
-
     .book-card {
       background-color: rgba(255, 255, 255, 0.95);
       border-radius: 12px;
@@ -171,7 +96,6 @@ padding: 15px;
  .book-card:hover {
       transform: scale(1.05);
     }
-
     .book-card img {
       width: 100%;
       height: 280px;
@@ -183,7 +107,6 @@ padding: 15px;
       font-size: 18px;
       color: #222;
     }
-
     .book-card a {
       display: inline-block;
       background-color: #0077cc;
@@ -199,9 +122,7 @@ padding: 15px;
   </style>
 </head>
 <body>
-
   <header>📚 قسم الأدب</header>
-
  <div class="container">
     <!-- نموذج الكتاب -->
     <div class="book-card">
