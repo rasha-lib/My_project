@@ -69,6 +69,25 @@
       background-color: rgba(255,255,255,0.1);
     }
 
+    /* شريط البحث تحت العنوان */
+    .search-bar {
+      text-align: center;
+      margin: 25px auto;
+      width: 80%;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      font-size: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      text-align: right;
+      box-sizing: border-box;
+    }
+
     .container {
       display: flex;
       flex-wrap: wrap;
@@ -126,20 +145,22 @@
       margin-top: 20px;
     }
 
+    /* 🔴 زر العودة */
     .back-btn {
       display: block;
       width: fit-content;
       margin: 40px auto;
-      background-color: #800000;
+      background-color: #a30000; /* أحمر غامق */
       color: #fff;
       padding: 15px 30px;
       border-radius: 8px;
       text-decoration: none;
       font-size: 20px;
+      transition: background-color 0.3s;
     }
 
     .back-btn:hover {
-      background-color: #005fa3;
+      background-color: #cc0000; /* أحمر أفتح عند التمرير */
     }
   </style>
 </head>
@@ -149,6 +170,11 @@
     قسم الأداب
     <span class="menu-btn" onclick="openMenu()">☰</span>
   </header>
+
+  <!-- 🔍 شريط البحث تحت العنوان -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="ابحث عن كتاب...">
+  </div>
 
   <!-- القائمة الجانبية -->
   <div id="sideMenu" class="side-menu">
@@ -183,7 +209,8 @@
     </div>
   </div>
 
-  <a href="arabic.html" class="back-btn"> العودة للصفحة العربية</a>
+  <!-- 🔴 زر العودة أحمر -->
+  <a href="arabic.html" class="back-btn">⬅ العودة للصفحة العربية</a>
 
   <script>
     const sideMenu = document.getElementById("sideMenu");
@@ -203,6 +230,27 @@
         closeMenu();
       }
     }
+
+    // البحث عن الكتب
+    const searchInput = document.getElementById('searchInput');
+    const books = document.querySelectorAll('.book-card');
+    const notFound = document.getElementById('notFound');
+
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim();
+      let found = false;
+      books.forEach(book => {
+        if (book.querySelector('h3').textContent.includes(query) || query === '') {
+          book.style.display = 'block';
+        } else {
+          book.style.display = 'none';
+        }
+        if (book.querySelector('h3').textContent.includes(query)) {
+          found = true;
+        }
+      });
+      notFound.style.display = (query && !found) ? 'block' : 'none';
+    });
   </script>
 </body>
 </html>
