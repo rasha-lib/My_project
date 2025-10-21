@@ -53,7 +53,7 @@
       background-color: rgba(0,0,0,0.95);
       overflow-x: hidden;
       transition: 0.4s;
-      padding-top: 120px; /* نزلنا التصنيفات شوي */
+      padding-top: 120px;
     }
 
     .side-menu a {
@@ -171,7 +171,7 @@
     <span class="menu-btn" onclick="openMenu()">☰</span>
   </header>
 
-  <!-- 🔍 شريط البحث تحت العنوان -->
+  <!-- شريط البحث -->
   <div class="search-bar">
     <input type="text" id="searchInput" placeholder="ابحث عن كتاب...">
   </div>
@@ -193,19 +193,19 @@
     <div class="book-card">
       <img src="غلاف.jpg" alt="غلاف الإعداد والانتحال">
       <h3>الإعداد والانتحال</h3>
-      <a href="الإعداد_والانتحال.pdf" target="_blank">📖 قراءة</a>
+      <a href="الإعداد_والانتحال.pdf" target="_blank" onclick="this.href=encodeURIComponent('الإعداد_والانتحال.pdf')">📖 قراءة</a>
     </div>
 
     <div class="book-card">
       <img src="غلاف 3.jpg" alt="غلاف حب الحياة">
       <h3>حُب الحياة</h3>
-      <a href="حُب_الحياة.pdf" target="_blank">📖 قراءة</a>
+      <a href="حُب_الحياة.pdf" target="_blank" onclick="this.href=encodeURIComponent('حُب_الحياة.pdf')">📖 قراءة</a>
     </div>
 
     <div class="book-card">
       <img src="غلاف2.jpg" alt="غلاف فن الأدب">
       <h3>فن الأدب</h3>
-      <a href="فن_الأدب.pdf" target="_blank">📖 قراءة</a>
+      <a href="فن_الأدب.pdf" target="_blank" onclick="this.href=encodeURIComponent('فن_الأدب.pdf')">📖 قراءة</a>
     </div>
   </div>
 
