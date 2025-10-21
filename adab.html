@@ -31,10 +31,11 @@
       position: absolute;
       top: 25px;
       right: 25px;
-      font-size: 35px;
+      font-size: 70px;
       cursor: pointer;
       color: white;
       transition: transform 0.2s;
+      z-index: 20;
     }
 
     .menu-btn:hover {
@@ -49,15 +50,15 @@
       z-index: 10;
       top: 0;
       right: 0;
-      background-color: rgba(0,0,0,0.9);
+      background-color: rgba(0,0,0,0.95);
       overflow-x: hidden;
       transition: 0.4s;
-      padding-top: 60px;
+      padding-top: 120px; /* نزلنا التصنيفات شوي */
     }
 
-    .side-menu a, .side-menu input {
+    .side-menu a {
       display: block;
-      color: white;
+      color: gold;
       text-decoration: none;
       padding: 12px 25px;
       text-align: right;
@@ -68,44 +69,23 @@
       background-color: rgba(255,255,255,0.1);
     }
 
-    .side-menu input {
-      width: 80%;
-      margin: 10px auto;
-      border: none;
-      border-radius: 6px;
-      padding: 8px;
-      font-size: 16px;
-      background-color: rgba(255,255,255,0.2);
-      color: white;
-      text-align: right;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 25px;
-      font-size: 36px;
-      cursor: pointer;
-      color: white;
-    }
-
-    /* شريط البحث أعلى الصفحة */
+    /* شريط البحث */
     .search-bar {
-      text-align: center;
-      margin: 20px auto;
       width: 100%;
+      margin: 0;
     }
 
     .search-bar input {
       width: 100%;
-      padding: 30px;
+      padding: 15px;
       border: none;
-      border-radius: 10px;
+      border-radius: 0;
       font-size: 20px;
       background-color: rgba(0, 0, 0, 0.6);
       color: white;
       text-align: right;
       box-sizing: border-box;
+      outline: none;
     }
 
     .container {
@@ -165,20 +145,22 @@
       margin-top: 20px;
     }
 
+    /* زر العودة */
     .back-btn {
       display: block;
       width: fit-content;
       margin: 40px auto;
-      background-color: #800000;
+      background-color: #a30000; /* أحمر */
       color: #fff;
       padding: 15px 30px;
       border-radius: 8px;
       text-decoration: none;
       font-size: 20px;
+      transition: background-color 0.3s;
     }
 
     .back-btn:hover {
-      background-color: #005fa3;
+      background-color: #cc0000;
     }
   </style>
 </head>
@@ -189,10 +171,13 @@
     <span class="menu-btn" onclick="openMenu()">☰</span>
   </header>
 
+  <!-- 🔍 شريط البحث تحت العنوان -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="ابحث عن كتاب...">
+  </div>
+
   <!-- القائمة الجانبية -->
   <div id="sideMenu" class="side-menu">
-    <span class="close-btn" onclick="closeMenu()">×</span>
-    <input type="text" placeholder="ابحث عن كتاب...">
     <a href="adab.html">الآداب</a>
     <a href="falsafa.html">الفلسفة</a>
     <a href="fanon.html">الفنون</a>
@@ -202,16 +187,11 @@
     <a href="tech.html">تكنولوجيا</a>
   </div>
 
-  <!-- شريط البحث -->
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="ابحث عن كتاب...">
-  </div>
-
   <div id="notFound">❌ الكتاب غير متوفر</div>
 
   <div class="container" id="booksContainer">
     <div class="book-card">
-      <img src="غلاف.jpg" alt="غلاف الكتاب">
+      <img src="غلاف.jpg" alt="غلاف الإعداد والانتحال">
       <h3>الإعداد والانتحال</h3>
       <a href="الإعداد_والانتحال.pdf" target="_blank">📖 قراءة</a>
     </div>
@@ -229,20 +209,29 @@
     </div>
   </div>
 
-  <a href="arabic.html" class="back-btn"> العودة للصفحة العربية</a>
+  <!-- زر العودة -->
+  <a href="arabic.html" class="back-btn">⬅ العودة للصفحة العربية</a>
 
   <script>
-    // فتح القائمة الجانبية
+    const sideMenu = document.getElementById("sideMenu");
+
     function openMenu() {
-      document.getElementById("sideMenu").style.width = "250px";
+      sideMenu.style.width = "250px";
+      document.addEventListener('click', closeOnOutsideClick);
     }
 
-    // إغلاق القائمة الجانبية
     function closeMenu() {
-      document.getElementById("sideMenu").style.width = "0";
+      sideMenu.style.width = "0";
+      document.removeEventListener('click', closeOnOutsideClick);
     }
 
-    // البحث عن الكتب
+    function closeOnOutsideClick(e) {
+      if (!sideMenu.contains(e.target) && !e.target.classList.contains('menu-btn')) {
+        closeMenu();
+      }
+    }
+
+    // البحث
     const searchInput = document.getElementById('searchInput');
     const books = document.querySelectorAll('.book-card');
     const notFound = document.getElementById('notFound');
@@ -251,12 +240,13 @@
       const query = this.value.trim();
       let found = false;
       books.forEach(book => {
-        if (book.querySelector('h3').textContent.includes(query) || query === '') {
+        const title = book.querySelector('h3').textContent.trim();
+        if (title.includes(query) || query === '') {
           book.style.display = 'block';
         } else {
           book.style.display = 'none';
         }
-        if (book.querySelector('h3').textContent.includes(query)) {
+        if (title.includes(query)) {
           found = true;
         }
       });
