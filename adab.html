@@ -21,7 +21,7 @@
       padding: 20px;
       font-size: 45px;
       font-weight: bold;
- color: white;
+      color: white;
       position: relative;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
@@ -49,7 +49,7 @@
       z-index: 10;
       top: 0;
       right: 0;
-   background-color: rgba(0,0,0,0.9);
+      background-color: rgba(0,0,0,0.9);
       overflow-x: hidden;
       transition: 0.4s;
       padding-top: 60px;
@@ -71,7 +71,7 @@
     .side-menu input {
       width: 80%;
       margin: 10px auto;
- border: none;
+      border: none;
       border-radius: 6px;
       padding: 8px;
       font-size: 16px;
@@ -95,7 +95,8 @@
       margin: 20px auto;
       width: 100%;
     }
-.search-bar input {
+
+    .search-bar input {
       width: 100%;
       padding: 30px;
       border: none;
@@ -119,7 +120,7 @@
       background-color: rgba(255, 255, 255, 0.95);
       border-radius: 12px;
       width: 230px;
-   text-align: center;
+      text-align: center;
       padding: 15px;
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s ease;
@@ -143,7 +144,7 @@
     }
 
     .book-card a {
- display: inline-block;
+      display: inline-block;
       background-color: #0077cc;
       color: #fff;
       padding: 8px 15px;
@@ -171,7 +172,7 @@
       background-color: #800000;
       color: #fff;
       padding: 15px 30px;
-  border-radius: 8px;
+      border-radius: 8px;
       text-decoration: none;
       font-size: 20px;
     }
@@ -195,7 +196,7 @@
     <a href="adab.html">الآداب</a>
     <a href="falsafa.html">الفلسفة</a>
     <a href="fanon.html">الفنون</a>
-  <a href="she3r.html">الشعر</a>
+    <a href="she3r.html">الشعر</a>
     <a href="tarikh.html">التاريخ</a>
     <a href="istiraha.html">استراحة القارئ</a>
     <a href="tech.html">تكنولوجيا</a>
@@ -218,7 +219,7 @@
     <div class="book-card">
       <img src="غلاف 3.jpg" alt="غلاف حب الحياة">
       <h3>حُب الحياة</h3>
-<a href="حُب_الحياة.pdf" target="_blank">📖 قراءة</a>
+      <a href="حُب_الحياة.pdf" target="_blank">📖 قراءة</a>
     </div>
 
     <div class="book-card">
@@ -233,7 +234,7 @@
   <script>
     // فتح القائمة الجانبية
     function openMenu() {
-  document.getElementById("sideMenu").style.width = "250px";
+      document.getElementById("sideMenu").style.width = "250px";
     }
 
     // إغلاق القائمة الجانبية
@@ -249,14 +250,13 @@
     searchInput.addEventListener('input', function() {
       const query = this.value.trim();
       let found = false;
-  books.forEach(book => {
+      books.forEach(book => {
         if (book.querySelector('h3').textContent.includes(query) || query === '') {
           book.style.display = 'block';
         } else {
           book.style.display = 'none';
         }
-        if 
-(book.querySelector('h3').textContent.includes(query)) {
+        if (book.querySelector('h3').textContent.includes(query)) {
           found = true;
         }
       });
