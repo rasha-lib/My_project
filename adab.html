@@ -53,7 +53,7 @@
       background-color: rgba(0,0,0,0.95);
       overflow-x: hidden;
       transition: 0.4s;
-      padding-top: 100px; /* 🔽 نزلنا التصنيفات */
+      padding-top: 120px; /* نزلنا التصنيفات شوي */
     }
 
     .side-menu a {
@@ -69,23 +69,23 @@
       background-color: rgba(255,255,255,0.1);
     }
 
-    /* شريط البحث تحت العنوان */
+    /* شريط البحث */
     .search-bar {
-      text-align: center;
-      margin: 25px auto;
-      width: 80%;
+      width: 100%;
+      margin: 0;
     }
 
     .search-bar input {
-      width: 110%;
+      width: 100%;
       padding: 15px;
       border: none;
-      border-radius: 10px;
+      border-radius: 0;
       font-size: 20px;
       background-color: rgba(0, 0, 0, 0.6);
       color: white;
       text-align: right;
       box-sizing: border-box;
+      outline: none;
     }
 
     .container {
@@ -145,12 +145,12 @@
       margin-top: 20px;
     }
 
-    /* 🔴 زر العودة */
+    /* زر العودة */
     .back-btn {
       display: block;
       width: fit-content;
       margin: 40px auto;
-      background-color: #a30000; /* أحمر غامق */
+      background-color: #a30000; /* أحمر */
       color: #fff;
       padding: 15px 30px;
       border-radius: 8px;
@@ -160,14 +160,14 @@
     }
 
     .back-btn:hover {
-      background-color: #cc0000; /* أحمر أفتح عند التمرير */
+      background-color: #cc0000;
     }
   </style>
 </head>
 <body>
 
   <header>
-    قسم الأداب
+    قسم الأدب
     <span class="menu-btn" onclick="openMenu()">☰</span>
   </header>
 
@@ -191,7 +191,7 @@
 
   <div class="container" id="booksContainer">
     <div class="book-card">
-      <img src="غلاف.jpg" alt="غلاف الكتاب">
+      <img src="غلاف.jpg" alt="غلاف الإعداد والانتحال">
       <h3>الإعداد والانتحال</h3>
       <a href="الإعداد_والانتحال.pdf" target="_blank">📖 قراءة</a>
     </div>
@@ -209,8 +209,8 @@
     </div>
   </div>
 
-  <!-- 🔴 زر العودة أحمر -->
-  <a href="arabic.html" class="back-btn"> العودة للصفحة العربية</a>
+  <!-- زر العودة -->
+  <a href="arabic.html" class="back-btn">⬅ العودة للصفحة العربية</a>
 
   <script>
     const sideMenu = document.getElementById("sideMenu");
@@ -231,7 +231,7 @@
       }
     }
 
-    // البحث عن الكتب
+    // البحث
     const searchInput = document.getElementById('searchInput');
     const books = document.querySelectorAll('.book-card');
     const notFound = document.getElementById('notFound');
@@ -240,17 +240,19 @@
       const query = this.value.trim();
       let found = false;
       books.forEach(book => {
-        if (book.querySelector('h3').textContent.includes(query) || query === '') {
+        const title = book.querySelector('h3').textContent.trim();
+        if (title.includes(query) || query === '') {
           book.style.display = 'block';
         } else {
           book.style.display = 'none';
         }
-        if (book.querySelector('h3').textContent.includes(query)) {
+        if (title.includes(query)) {
           found = true;
         }
       });
       notFound.style.display = (query && !found) ? 'block' : 'none';
     });
   </script>
+
 </body>
 </html>
