@@ -21,7 +21,7 @@
       padding: 20px;
       font-size: 45px;
       font-weight: bold;
-      color: white;
+ color: white;
       position: relative;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
@@ -31,11 +31,10 @@
       position: absolute;
       top: 25px;
       right: 25px;
-      font-size: 70px;
+      font-size: 35px;
       cursor: pointer;
       color: white;
       transition: transform 0.2s;
-      z-index: 20;
     }
 
     .menu-btn:hover {
@@ -50,15 +49,15 @@
       z-index: 10;
       top: 0;
       right: 0;
-      background-color: rgba(0,0,0,0.95);
+   background-color: rgba(0,0,0,0.9);
       overflow-x: hidden;
       transition: 0.4s;
-      padding-top: 120px;
+      padding-top: 60px;
     }
 
-    .side-menu a {
+    .side-menu a, .side-menu input {
       display: block;
-      color: gold;
+      color: white;
       text-decoration: none;
       padding: 12px 25px;
       text-align: right;
@@ -69,23 +68,43 @@
       background-color: rgba(255,255,255,0.1);
     }
 
-    /* شريط البحث */
-    .search-bar {
-      width: 100%;
-      margin: 0;
+    .side-menu input {
+      width: 80%;
+      margin: 10px auto;
+ border: none;
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 16px;
+      background-color: rgba(255,255,255,0.2);
+      color: white;
+      text-align: right;
     }
 
-    .search-bar input {
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      font-size: 36px;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* شريط البحث أعلى الصفحة */
+    .search-bar {
+      text-align: center;
+      margin: 20px auto;
       width: 100%;
-      padding: 15px;
+    }
+.search-bar input {
+      width: 100%;
+      padding: 30px;
       border: none;
-      border-radius: 0;
+      border-radius: 10px;
       font-size: 20px;
       background-color: rgba(0, 0, 0, 0.6);
       color: white;
       text-align: right;
       box-sizing: border-box;
-      outline: none;
     }
 
     .container {
@@ -100,7 +119,7 @@
       background-color: rgba(255, 255, 255, 0.95);
       border-radius: 12px;
       width: 230px;
-      text-align: center;
+   text-align: center;
       padding: 15px;
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s ease;
@@ -124,7 +143,7 @@
     }
 
     .book-card a {
-      display: inline-block;
+ display: inline-block;
       background-color: #0077cc;
       color: #fff;
       padding: 8px 15px;
@@ -145,22 +164,20 @@
       margin-top: 20px;
     }
 
-    /* زر العودة */
     .back-btn {
       display: block;
       width: fit-content;
       margin: 40px auto;
-      background-color: #a30000; /* أحمر */
+      background-color: #800000;
       color: #fff;
       padding: 15px 30px;
-      border-radius: 8px;
+  border-radius: 8px;
       text-decoration: none;
       font-size: 20px;
-      transition: background-color 0.3s;
     }
 
     .back-btn:hover {
-      background-color: #cc0000;
+      background-color: #005fa3;
     }
   </style>
 </head>
@@ -171,67 +188,60 @@
     <span class="menu-btn" onclick="openMenu()">☰</span>
   </header>
 
-  <!-- شريط البحث -->
-  <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="ابحث عن كتاب...">
-  </div>
-
   <!-- القائمة الجانبية -->
   <div id="sideMenu" class="side-menu">
+    <span class="close-btn" onclick="closeMenu()">×</span>
+    <input type="text" placeholder="ابحث عن كتاب...">
     <a href="adab.html">الآداب</a>
     <a href="falsafa.html">الفلسفة</a>
     <a href="fanon.html">الفنون</a>
-    <a href="she3r.html">الشعر</a>
+  <a href="she3r.html">الشعر</a>
     <a href="tarikh.html">التاريخ</a>
     <a href="istiraha.html">استراحة القارئ</a>
     <a href="tech.html">تكنولوجيا</a>
+  </div>
+
+  <!-- شريط البحث -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="ابحث عن كتاب...">
   </div>
 
   <div id="notFound">❌ الكتاب غير متوفر</div>
 
   <div class="container" id="booksContainer">
     <div class="book-card">
-      <img src="غلاف.jpg" alt="غلاف الإعداد والانتحال">
+      <img src="غلاف.jpg" alt="غلاف الكتاب">
       <h3>الإعداد والانتحال</h3>
-      <a href="الإعداد_والانتحال.pdf" target="_blank" onclick="this.href=encodeURIComponent('الإعداد_والانتحال.pdf')">📖 قراءة</a>
+      <a href="الإعداد_والانتحال.pdf" target="_blank">📖 قراءة</a>
     </div>
 
     <div class="book-card">
       <img src="غلاف 3.jpg" alt="غلاف حب الحياة">
       <h3>حُب الحياة</h3>
-      <a href="حُب_الحياة.pdf" target="_blank" onclick="this.href=encodeURIComponent('حُب_الحياة.pdf')">📖 قراءة</a>
+<a href="حُب_الحياة.pdf" target="_blank">📖 قراءة</a>
     </div>
 
     <div class="book-card">
       <img src="غلاف2.jpg" alt="غلاف فن الأدب">
       <h3>فن الأدب</h3>
-      <a href="فن_الأدب.pdf" target="_blank" onclick="this.href=encodeURIComponent('فن_الأدب.pdf')">📖 قراءة</a>
+      <a href="فن_الأدب.pdf" target="_blank">📖 قراءة</a>
     </div>
   </div>
 
-  <!-- زر العودة -->
-  <a href="arabic.html" class="back-btn">⬅ العودة للصفحة العربية</a>
+  <a href="arabic.html" class="back-btn"> العودة للصفحة العربية</a>
 
   <script>
-    const sideMenu = document.getElementById("sideMenu");
-
+    // فتح القائمة الجانبية
     function openMenu() {
-      sideMenu.style.width = "250px";
-      document.addEventListener('click', closeOnOutsideClick);
+  document.getElementById("sideMenu").style.width = "250px";
     }
 
+    // إغلاق القائمة الجانبية
     function closeMenu() {
-      sideMenu.style.width = "0";
-      document.removeEventListener('click', closeOnOutsideClick);
+      document.getElementById("sideMenu").style.width = "0";
     }
 
-    function closeOnOutsideClick(e) {
-      if (!sideMenu.contains(e.target) && !e.target.classList.contains('menu-btn')) {
-        closeMenu();
-      }
-    }
-
-    // البحث
+    // البحث عن الكتب
     const searchInput = document.getElementById('searchInput');
     const books = document.querySelectorAll('.book-card');
     const notFound = document.getElementById('notFound');
@@ -239,14 +249,14 @@
     searchInput.addEventListener('input', function() {
       const query = this.value.trim();
       let found = false;
-      books.forEach(book => {
-        const title = book.querySelector('h3').textContent.trim();
-        if (title.includes(query) || query === '') {
+  books.forEach(book => {
+        if (book.querySelector('h3').textContent.includes(query) || query === '') {
           book.style.display = 'block';
         } else {
           book.style.display = 'none';
         }
-        if (title.includes(query)) {
+        if 
+(book.querySelector('h3').textContent.includes(query)) {
           found = true;
         }
       });
