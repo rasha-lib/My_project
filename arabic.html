@@ -2,216 +2,253 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>المكتبة الرقمية</title>
+  <title>قسم الفلسفة</title>
   <style>
     body {
       margin: 0;
       font-family: "Tahoma", sans-serif;
       background-image: url('خلفية.jpg');
       background-size: cover;
-      background-position: center;
       background-repeat: no-repeat;
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      background-attachment: fixed;
+      background-position: center center;
+      direction: rtl;
+      color: #222;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      font-size: 45px;
+      font-weight: bold;
+      color: white;
       position: relative;
-      padding-bottom: 120px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
+    /* زر القائمة */
     .menu-btn {
-      position: fixed;
-      top: 20px;
+      position: absolute;
+      top: 25px;
       right: 25px;
-      width: 50px;
-      height: 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      font-size: 70px;
       cursor: pointer;
-      z-index: 1001;
+      color: white;
+      transition: transform 0.2s;
+      z-index: 20;
     }
 
-    .menu-btn span {
-      display: block;
-      height: 6px;
-      width: 100%;
-      background-color: #fff;
-      border-radius: 3px;
-      transition: all 0.3s ease;
+    .menu-btn:hover {
+      transform: scale(1.15);
     }
 
+    /* القائمة الجانبية */
     .side-menu {
       height: 100%;
-      width: 300px;
+      width: 0;
       position: fixed;
+      z-index: 10;
       top: 0;
-      right: -300px;
+      right: 0;
       background-color: rgba(0,0,0,0.95);
       overflow-x: hidden;
-      transition: 0.4s ease;
-      padding-top: 60px;
-      box-sizing: border-box;
-      z-index: 1000;
-    }
-
-    .side-menu input {
-      width: 80%;
-      margin: 10px auto 10px auto;
-      display: block;
-      padding: 10px;
-      font-size: 16px;
-      border-radius: 6px;
-      border: none;
+      transition: 0.4s;
+      padding-top: 120px;
     }
 
     .side-menu a {
-      padding: 15px 30px;
-      text-decoration: none;
-      font-size: 22px;
-      color: #ffd700;
       display: block;
-      transition: background 0.3s;
+      color: gold;
+      text-decoration: none;
+      padding: 12px 25px;
+      text-align: right;
+      font-size: 18px;
     }
 
     .side-menu a:hover {
-      background-color: rgba(128,0,0,0.7);
-      border-radius: 6px;
+      background-color: rgba(255,255,255,0.1);
     }
 
-    .no-result {
+    /* شريط البحث */
+    .search-bar {
+      width: 100%;
+      margin: 0;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 0;
+      font-size: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      text-align: right;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    /* الكتب */
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px;
+      gap: 25px;
+    }
+
+    .book-card {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      width: 230px;
       text-align: center;
-      color: #ff6666;
+      padding: 15px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .book-card:hover {
+      transform: scale(1.05);
+    }
+
+    .book-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .book-card h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+      color: #222;
+    }
+
+    .book-card a {
+      display: inline-block;
+      background-color: #0077cc;
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 6px;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+
+    .book-card a:hover {
+      background-color: #005fa3;
+    }
+
+    #notFound {
+      display: none;
+      text-align: center;
+      color: red;
       font-size: 20px;
       margin-top: 20px;
-      display: none;
     }
 
-    .about-us {
-      width: 80%;
-      max-width: 900px;
-      height: 60vh;
-      background: rgba(128, 0, 0, 0.85);
-      border-radius: 12px;
-      padding: 40px;
-      text-align: center;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.6);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
-
-    .about-us h2 {
+    /* زر العودة */
+    .back-btn {
+      display: block;
+      width: fit-content;
+      margin: 40px auto;
+      background-color: #a30000;
       color: #fff;
-      margin-bottom: 20px;
-      font-size: 32px;
-    }
-
-    .about-us p {
-      color: #fff;
-      font-size: 22px;
-      line-height: 1.6;
-    }
-
-    .btn-back {
-      background-color: #800000;
-      color: #fff;
-      border: none;
       padding: 15px 30px;
       border-radius: 8px;
-      font-size: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
       text-decoration: none;
-      display: block;
-      text-align: center;
-      margin-bottom: 20px;
+      font-size: 20px;
+      transition: background-color 0.3s;
     }
 
-    .btn-back:hover {
-      background-color: #a00000;
+    .back-btn:hover {
+      background-color: #cc0000;
     }
   </style>
 </head>
 <body>
 
-  <!-- الثلاث شرطات -->
-  <div class="menu-btn" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
+  <header>
+    قسم الفلسفة
+    <span class="menu-btn" onclick="openMenu()">☰</span>
+  </header>
+
+  <!-- شريط البحث -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="ابحث عن كتاب...">
   </div>
 
   <!-- القائمة الجانبية -->
   <div id="sideMenu" class="side-menu">
-    <input id="searchInput" type="text" placeholder="ابحث عن كتاب...">
     <a href="adab.html">الآداب</a>
-    <a href="phinosophy">الفلسفة</a>
-    <a href="#">الفنون</a>
-    <a href="#">الشعر</a>
-    <a href="#">التاريخ</a>
-    <a href="#">استراحة القارى</a>
-    <a href="#">تكنلوجيا</a>
-    <div id="noResult" class="no-result">⚠️  غير متوفر</div>
+    <a href="falsafa.html">الفلسفة</a>
+    <a href="fanon.html">الفنون</a>
+    <a href="she3r.html">الشعر</a>
+    <a href="tarikh.html">التاريخ</a>
+    <a href="istiraha.html">استراحة القارئ</a>
+    <a href="tech.html">تكنولوجيا</a>
   </div>
 
-  <!-- فقرة من نحن -->
-  <div class="about-us">
-    <h2>من نحن</h2>
-    <p>
-      نحن المكتبة الرقمية العربية، منصة متخصصة في توفير مصادر المعرفة العربية بجميع مجالاتها. نسعى لتسهيل الوصول إلى الكتب والمراجع بطريقة رقمية آمنة ومنظمة، مع واجهة حديثة وسهلة الاستخدام. مهمتنا تمكين القارئ العربي من التعلم والبحث والاستفادة من محتوى موثوق دون قيود، مع الحفاظ على تجربة رقمية مريحة وجذابة لجميع الزوار.
-    </p>
+  <!-- الكتب -->
+  <div class="container">
+    <!-- الكتاب الأول -->
+    <div class="book-card">
+      <img src="غلاف_سقراط.jpg" alt="غلاف حياة سقراط">
+      <h3>حياة سقراط</h3>
+      <a href="حياة_سقراط.pdf" target="_blank">📖 قراءة</a>
+    </div>
+
+    <!-- الكتاب الثاني -->
+    <div class="book-card">
+      <img src="غلاف_افلاطون.jpg" alt="غلاف جمهورية أفلاطون">
+      <h3>جمهورية أفلاطون</h3>
+      <a href="جمهورية_افلاطون.pdf" target="_blank">📖 قراءة</a>
+    </div>
   </div>
 
-  <!-- زر الرجوع للصفحة الرئيسية -->
-  <a href="index.html" class="btn-back">⬅ العودة للصفحة الرئيسية</a>
+  <div id="notFound">❌ الكتاب غير متوفر</div>
+
+  <!-- زر العودة -->
+  <a href="arabic.html" class="back-btn">⬅ العودة للصفحة العربية</a>
 
   <script>
-    const sideMenu = document.getElementById('sideMenu');
-    const menuBtn = document.querySelector('.menu-btn');
-    const searchInput = document.getElementById('searchInput');
-    const links = sideMenu.querySelectorAll('a');
-    const noResult = document.getElementById('noResult');
+    const sideMenu = document.getElementById("sideMenu");
 
-    function toggleMenu() {
-      if (sideMenu.style.right === '0px') {
-        sideMenu.style.right = '-300px';
-      } else {
-        sideMenu.style.right = '0px';
+    function openMenu() {
+      sideMenu.style.width = "250px";
+      document.addEventListener('click', closeOnOutsideClick);
+    }
+
+    function closeMenu() {
+      sideMenu.style.width = "0";
+      document.removeEventListener('click', closeOnOutsideClick);
+    }
+
+    function closeOnOutsideClick(e) {
+      if (!sideMenu.contains(e.target) && !e.target.classList.contains('menu-btn')) {
+        closeMenu();
       }
     }
 
-    // البحث عن كتاب
-    searchInput.addEventListener('input', function() {
-      const query = this.value.trim().toLowerCase();
-      let found = false;
+    // البحث
+    const searchInput = document.getElementById('searchInput');
+    const books = document.querySelectorAll('.book-card');
+    const notFound = document.getElementById('notFound');
 
-      links.forEach(link => {
-        if (link.textContent.toLowerCase().includes(query) || query === '') {
-          link.style.display = 'block';
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim();
+      let found = false;
+      books.forEach(book => {
+        const title = book.querySelector('h3').textContent.trim();
+        if (title.includes(query) || query === '') {
+          book.style.display = 'block';
         } else {
-          link.style.display = 'none';
+          book.style.display = 'none';
+        }
+        if (title.includes(query)) {
+          found = true;
         }
       });
-
-      if (query !== '') {
-        found = Array.from(links).some(link =>
-          link.textContent.toLowerCase().includes(query)
-        );
-      }
-
-      noResult.style.display = found || query === '' ? 'none' : 'block';
-    });
-
-    // إغلاق القائمة عند الضغط خارجها
-    document.addEventListener('click', function(event) {
-      if (!sideMenu.contains(event.target) && !menuBtn.contains(event.target)) {
-        sideMenu.style.right = '-300px';
-      }
+      notFound.style.display = (query && !found) ? 'block' : 'none';
     });
   </script>
 
