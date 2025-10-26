@@ -26,7 +26,6 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
-    /* زر الشرطات */
     .menu-btn {
       position: absolute;
       top: 25px;
@@ -42,7 +41,6 @@
       transform: scale(1.15);
     }
 
-    /* القائمة الجانبية */
     .side-menu {
       height: 100%;
       width: 0;
@@ -69,7 +67,6 @@
       background-color: rgba(255,255,255,0.1);
     }
 
-    /* شريط البحث */
     .search-bar {
       width: 100%;
       margin: 0;
@@ -104,6 +101,7 @@
       padding: 15px;
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s ease;
+      color: #222;
     }
 
     .book-card:hover {
@@ -125,16 +123,28 @@
 
     .book-card a {
       display: inline-block;
-      background-color: #0077cc;
-      color: #fff;
       padding: 8px 15px;
       border-radius: 6px;
       text-decoration: none;
-      margin-top: 10px;
+      margin-top: 8px;
     }
 
-    .book-card a:hover {
+    .read-btn {
+      background-color: #0077cc;
+      color: #fff;
+    }
+
+    .read-btn:hover {
       background-color: #005fa3;
+    }
+
+    .download-btn {
+      background-color: #008000;
+      color: #fff;
+    }
+
+    .download-btn:hover {
+      background-color: #006600;
     }
 
     #notFound {
@@ -145,7 +155,6 @@
       margin-top: 20px;
     }
 
-    /* زر العودة */
     .back-btn {
       display: block;
       width: fit-content;
@@ -171,12 +180,10 @@
     <span class="menu-btn" onclick="openMenu()">☰</span>
   </header>
 
-  <!-- 🔍 شريط البحث -->
   <div class="search-bar">
     <input type="text" id="searchInput" placeholder="ابحث عن كتاب...">
   </div>
 
-  <!-- القائمة الجانبية -->
   <div id="sideMenu" class="side-menu">
     <a href="adab.html">الآداب</a>
     <a href="falsafa.html">الفلسفة</a>
@@ -189,30 +196,24 @@
 
   <div id="notFound">❌ الكتاب غير متوفر</div>
 
-  <!-- الكتب -->
   <div class="container">
     <!-- الكتاب الأول -->
     <div class="book-card">
       <img src="10.jpg" alt="غلاف السؤال الآخر">
       <h3>السؤال الآخر</h3>
-      <a href="السؤال_الآخر.pdf" target="_blank">📖 قراءة</a>
+      <a href="السؤال_الآخر.pdf" target="_blank" class="read-btn">📖 قراءة</a>
+      <a href="السؤال_الآخر.pdf" download class="download-btn">⬇ تحميل</a>
     </div>
 
     <!-- الكتاب الثاني -->
     <div class="book-card">
       <img src="11.jpg" alt="غلاف المثقفون">
       <h3>المثقفون</h3>
-      <a href="المثقفون.pdf" target="_blank">📖 قراءة</a>
-    </div>
-      <!-- الكتاب الثالث -->
-    <div class="book-card">
-      <img src="12.jpg" alt="غلاف العقل والثورة">
-      <h3>العقل والثورة</h3>
-      <a href="العقل_والثورة.pdf" target="_blank">📖 قراءة</a>
+      <a href="المثقفون.pdf" target="_blank" class="read-btn">📖 قراءة</a>
+      <a href="المثقفون.pdf" download class="download-btn">⬇ تحميل</a>
     </div>
   </div>
 
-  <!-- زر العودة -->
   <a href="arabic.html" class="back-btn">⬅ العودة للصفحة العربية</a>
 
   <script>
