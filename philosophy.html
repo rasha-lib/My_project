@@ -26,7 +26,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
-    /* زر الشرطات */
+    /* زر القائمة */
     .menu-btn {
       position: absolute;
       top: 25px;
@@ -53,7 +53,7 @@
       background-color: rgba(0,0,0,0.95);
       overflow-x: hidden;
       transition: 0.4s;
-      padding-top: 120px; /* نزلنا التصنيفات شوي */
+      padding-top: 120px;
     }
 
     .side-menu a {
@@ -88,6 +88,7 @@
       outline: none;
     }
 
+    /* الكتب */
     .container {
       display: flex;
       flex-wrap: wrap;
@@ -150,7 +151,7 @@
       display: block;
       width: fit-content;
       margin: 40px auto;
-      background-color: #a30000; /* أحمر */
+      background-color: #a30000;
       color: #fff;
       padding: 15px 30px;
       border-radius: 8px;
@@ -171,7 +172,7 @@
     <span class="menu-btn" onclick="openMenu()">☰</span>
   </header>
 
-  <!-- 🔍 شريط البحث تحت العنوان -->
+  <!-- شريط البحث -->
   <div class="search-bar">
     <input type="text" id="searchInput" placeholder="ابحث عن كتاب...">
   </div>
@@ -186,15 +187,28 @@
     <a href="istiraha.html">استراحة القارئ</a>
     <a href="tech.html">تكنولوجيا</a>
   </div>
-  <div id="notFound">❌ الكتاب غير متوفر</div>
- <div class="container">
-     <!-- الكتاب الاول -->
+
+  <!-- الكتب -->
+  <div class="container">
+    <!-- الكتاب الأول -->
     <div class="book-card">
-      <img src="غلاف.jpg" alt="غلاف الاعداد والانتحال">
-      <h3>الاعداد والانتحال </h3>
-      <a href="الإعداد_والانتحال.pdf" target="_blank">📖 قراءة</a>
+      <img src="غلاف_سقراط.jpg" alt="غلاف حياة سقراط">
+      <h3>حياة سقراط</h3>
+      <a href="حياة_سقراط.pdf" target="_blank">📖 قراءة</a>
+    </div>
+
+    <!-- الكتاب الثاني -->
+    <div class="book-card">
+      <img src="غلاف_افلاطون.jpg" alt="غلاف جمهورية أفلاطون">
+      <h3>جمهورية أفلاطون</h3>
+      <a href="جمهورية_افلاطون.pdf" target="_blank">📖 قراءة</a>
+    </div>
+  </div>
+
+  <div id="notFound">❌ الكتاب غير متوفر</div>
+
   <!-- زر العودة -->
-  <a href="arabic.html" class="back-btn"> العودة للصفحة العربية</a>
+  <a href="arabic.html" class="back-btn">⬅ العودة للصفحة العربية</a>
 
   <script>
     const sideMenu = document.getElementById("sideMenu");
