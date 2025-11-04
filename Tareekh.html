@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>قسم التاريخ</title>
+  <title>Tareekh. هتميل</title>
   <style>
     body {
       margin: 0;
@@ -26,7 +26,6 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
-    /* زر الشرطات */
     .menu-btn {
       position: absolute;
       top: 25px;
@@ -42,7 +41,6 @@
       transform: scale(1.15);
     }
 
-    /* القائمة الجانبية */
     .side-menu {
       height: 100%;
       width: 0;
@@ -53,7 +51,7 @@
       background-color: rgba(0,0,0,0.95);
       overflow-x: hidden;
       transition: 0.4s;
-      padding-top: 120px; /* نزلنا التصنيفات شوي */
+      padding-top: 120px;
     }
 
     .side-menu a {
@@ -69,7 +67,6 @@
       background-color: rgba(255,255,255,0.1);
     }
 
-    /* شريط البحث */
     .search-bar {
       width: 100%;
       margin: 0;
@@ -145,12 +142,11 @@
       margin-top: 20px;
     }
 
-    /* زر العودة */
     .back-btn {
       display: block;
       width: fit-content;
       margin: 40px auto;
-      background-color: #a30000; /* أحمر */
+      background-color: #a30000;
       color: #fff;
       padding: 15px 30px;
       border-radius: 8px;
@@ -167,35 +163,36 @@
 <body>
 
   <header>
-    قسم التاريخ
+    Tareekh. هتميل
     <span class="menu-btn" onclick="openMenu()">☰</span>
   </header>
 
-  <!-- 🔍 شريط البحث تحت العنوان -->
   <div class="search-bar">
     <input type="text" id="searchInput" placeholder="ابحث عن كتاب...">
   </div>
 
-  <!-- القائمة الجانبية -->
   <div id="sideMenu" class="side-menu">
-    <a href="adab.html">الآداب</a>
-    <a href="falsafa.html">الفلسفة</a>
-    <a href="funoon.html">الفنون</a>
-    <a href="Shi‘r.html">الشعر</a>
-    <a href="Tarikh.html">التاريخ</a>
-    <a href="istiraha.html">استراحة القارئ</a>
-    <a href="tech.html">تكنولوجيا</a>
+    <a href="adab.html">Adab. هتميل</a>
+    <a href="falsafa.html">Falsafa. هتميل</a>
+    <a href="funoon.html">Funoon. هتميل</a>
+    <a href="Shi‘r.html">Shi‘r. هتميل</a>
+    <a href="Tareekh.html">Tareekh. هتميل</a>
+    <a href="istiraha.html">Istiraha. هتميل</a>
+    <a href="tech.html">Tech. هتميل</a>
   </div>
+
   <div id="notFound">❌ الكتاب غير متوفر</div>
- <div class="container">
-     <!-- الكتاب الاول -->
+
+  <div class="container">
+    <!-- الكتاب الأول -->
     <div class="book-card">
-      <img src="غلاف.jpg" alt="غلاف الاعداد والانتحال">
-      <h3>الاعداد والانتحال </h3>
+      <img src="غلاف.jpg" alt="غلاف الإعداد والانتحال">
+      <h3>الإعداد والانتحال</h3>
       <a href="الإعداد_والانتحال.pdf" target="_blank">📖 قراءة</a>
+    </div>
   </div>
-  <!-- زر العودة -->
-  <a href="arabic.html" class="back-btn"> العودة للصفحة العربية</a>
+
+  <a href="arabic.html" class="back-btn">العودة للصفحة العربية</a>
 
   <script>
     const sideMenu = document.getElementById("sideMenu");
@@ -216,7 +213,6 @@
       }
     }
 
-    // البحث
     const searchInput = document.getElementById('searchInput');
     const books = document.querySelectorAll('.book-card');
     const notFound = document.getElementById('notFound');
