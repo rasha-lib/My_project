@@ -15,6 +15,7 @@
       direction: rtl;
       color: #222;
     }
+
     header {
       text-align: center;
       padding: 20px;
@@ -86,6 +87,7 @@
       padding: 30px;
       gap: 25px;
     }
+
     .book-card {
       background-color: rgba(255, 255, 255, 0.95);
       border-radius: 12px;
@@ -95,20 +97,24 @@
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s ease;
     }
+
     .book-card:hover {
       transform: scale(1.05);
     }
+
     .book-card img {
       width: 100%;
       height: 280px;
       object-fit: cover;
       border-radius: 10px;
     }
+
     .book-card h3 {
       margin: 10px 0 5px;
       font-size: 18px;
       color: #222;
     }
+
     .book-card a {
       display: inline-block;
       background-color: #0077cc;
@@ -118,9 +124,11 @@
       text-decoration: none;
       margin-top: 10px;
     }
+
     .book-card a:hover {
       background-color: #005fa3;
     }
+
     #notFound {
       display: none;
       text-align: center;
@@ -128,6 +136,7 @@
       font-size: 20px;
       margin-top: 20px;
     }
+
     .back-btn {
       display: block;
       width: fit-content;
@@ -149,13 +158,14 @@
 <body>
 
   <header>
-    قسم التاريخ 
+    قسم التاريخ
     <span class="menu-btn" onclick="openMenu()">☰</span>
   </header>
 
   <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="ابحث عن كتاب في التاريخ">
+    <input type="text" id="searchInput" placeholder="ابحث عن كتاب في التاريخ...">
   </div>
+
   <div id="sideMenu" class="side-menu">
     <a href="adab.html">الآداب</a>
     <a href="falsafa.html">الفلسفة</a>
@@ -166,17 +176,19 @@
     <a href="tech.html">تكنولوجيا</a>
   </div>
 
-  <div id="notFound">❌  غير متوفر</div>
+  <div id="notFound">❌ الكتاب غير متوفر</div>
 
   <div class="container">
-    <!-- الكتاب الاول -->
+    <!-- الكتاب الأول -->
     <div class="book-card">
-      <img src="21.jpg" alt="غلاف النقد الفني">
+      <img src="21.jpg" alt="غلاف كتاب في التاريخ">
       <h3>النقد الفني</h3>
       <a href="النقد_الفني.pdf" target="_blank">📖 قراءة</a>
     </div>
   </div>
-  <a href="arabic.html" class="back-btn"> العودة للصفحة العربية</a>
+
+  <a href="arabic.html" class="back-btn">العودة للصفحة العربية</a>
+
   <script>
     const sideMenu = document.getElementById("sideMenu");
     function openMenu() {
@@ -192,9 +204,11 @@
         closeMenu();
       }
     }
+
     const searchInput = document.getElementById('searchInput');
     const books = document.querySelectorAll('.book-card');
     const notFound = document.getElementById('notFound');
+
     searchInput.addEventListener('input', function() {
       const query = this.value.trim();
       let found = false;
@@ -212,5 +226,6 @@
       notFound.style.display = (query && !found) ? 'block' : 'none';
     });
   </script>
+
 </body>
 </html>
