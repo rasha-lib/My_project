@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>Tareekh.html</title>
+  <title>قسم التاريخ</title>
   <style>
     body {
       margin: 0;
@@ -26,6 +26,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
+    /* زر الشرطات */
     .menu-btn {
       position: absolute;
       top: 25px;
@@ -41,6 +42,7 @@
       transform: scale(1.15);
     }
 
+    /* القائمة الجانبية */
     .side-menu {
       height: 100%;
       width: 0;
@@ -67,6 +69,7 @@
       background-color: rgba(255,255,255,0.1);
     }
 
+    /* شريط البحث */
     .search-bar {
       width: 100%;
       margin: 0;
@@ -142,6 +145,7 @@
       margin-top: 20px;
     }
 
+    /* زر العودة */
     .back-btn {
       display: block;
       width: fit-content;
@@ -163,36 +167,37 @@
 <body>
 
   <header>
-    Tareekh.html
+    قسم التاريخ
     <span class="menu-btn" onclick="openMenu()">☰</span>
   </header>
 
+  <!-- 🔍 شريط البحث -->
   <div class="search-bar">
     <input type="text" id="searchInput" placeholder="ابحث عن كتاب...">
   </div>
 
+  <!-- القائمة الجانبية -->
   <div id="sideMenu" class="side-menu">
-    <a href="adab.html">Adab.html</a>
-    <a href="falsafa.html">Falsafa.html</a>
-    <a href="funoon.html">Funoon.html</a>
-    <a href="Shi‘r.html">Shi‘r.html</a>
-    <a href="Tareekh.html">Tareekh.html</a>
-    <a href="istiraha.html">Istiraha.html</a>
-    <a href="tech.html">Tech.html</a>
+    <a href="adab.html">الآداب</a>
+    <a href="falsafa.html">الفلسفة</a>
+    <a href="funoon.html">الفنون</a>
+    <a href="she3r.html">الشعر</a>
+    <a href="Tareekh.html">التاريخ</a>
+    <a href="istiraha.html">استراحة القارئ</a>
+    <a href="tech.html">تكنولوجيا</a>
   </div>
 
   <div id="notFound">❌ الكتاب غير متوفر</div>
-
-  <div class="container">
-    <!-- الكتاب الأول -->
+    <div class="container">
+    <!-- الكتاب الاول -->
     <div class="book-card">
-      <img src="غلاف.jpg" alt="غلاف الإعداد والانتحال">
-      <h3>الإعداد والانتحال</h3>
-      <a href="الإعداد_والانتحال.pdf" target="_blank">📖 قراءة</a>
+      <img src="29.jpg" alt="غلاف كما لم تكن قط">
+      <h3>كما لم تكن قط </h3>
+      <a href="كما_لم_تكن_قط.pdf" target="_blank">📖 قراءة</a>
     </div>
   </div>
-
-  <a href="arabic.html" class="back-btn">العودة للصفحة العربية</a>
+  <!-- زر العودة -->
+  <a href="arabic.html" class="back-btn"> العودة للصفحة العربية</a>
 
   <script>
     const sideMenu = document.getElementById("sideMenu");
@@ -213,6 +218,7 @@
       }
     }
 
+    // البحث
     const searchInput = document.getElementById('searchInput');
     const books = document.querySelectorAll('.book-card');
     const notFound = document.getElementById('notFound');
