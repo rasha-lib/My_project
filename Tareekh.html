@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>Tareekh. هتميل</title>
+  <title>قسم التاريخ</title>
   <style>
     body {
       margin: 0;
@@ -26,6 +26,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
+    /* زر الشرطات */
     .menu-btn {
       position: absolute;
       top: 25px;
@@ -41,6 +42,7 @@
       transform: scale(1.15);
     }
 
+    /* القائمة الجانبية */
     .side-menu {
       height: 100%;
       width: 0;
@@ -51,7 +53,7 @@
       background-color: rgba(0,0,0,0.95);
       overflow-x: hidden;
       transition: 0.4s;
-      padding-top: 120px;
+      padding-top: 120px; /* نزلنا التصنيفات شوي */
     }
 
     .side-menu a {
@@ -65,6 +67,12 @@
 
     .side-menu a:hover {
       background-color: rgba(255,255,255,0.1);
+    }
+
+    /* شريط البحث */
+    .search-bar {
+      width: 100%;
+      margin: 0;
     }
 
     .search-bar input {
@@ -137,11 +145,12 @@
       margin-top: 20px;
     }
 
+    /* زر العودة */
     .back-btn {
       display: block;
       width: fit-content;
       margin: 40px auto;
-      background-color: #a30000;
+      background-color: #a30000; /* أحمر */
       color: #fff;
       padding: 15px 30px;
       border-radius: 8px;
@@ -158,66 +167,35 @@
 <body>
 
   <header>
-    Tareekh. هتميل
+    قسم التاريخ
     <span class="menu-btn" onclick="openMenu()">☰</span>
   </header>
 
+  <!-- 🔍 شريط البحث تحت العنوان -->
   <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="ابحث عن كتاب في التاريخ...">
+    <input type="text" id="searchInput" placeholder="ابحث عن كتاب...">
   </div>
 
+  <!-- القائمة الجانبية -->
   <div id="sideMenu" class="side-menu">
     <a href="adab.html">الآداب</a>
     <a href="falsafa.html">الفلسفة</a>
     <a href="funoon.html">الفنون</a>
     <a href="Shi‘r.html">الشعر</a>
-    <a href="Tareekh.html">التاريخ</a>
+    <a href="Tarikh.html">التاريخ</a>
     <a href="istiraha.html">استراحة القارئ</a>
     <a href="tech.html">تكنولوجيا</a>
   </div>
-
   <div id="notFound">❌ الكتاب غير متوفر</div>
-
-  <div class="container">
-    <!-- الكتب -->
+ <div class="container">
+     <!-- الكتاب الاول -->
     <div class="book-card">
-      <img src="31.jpg" alt="غلاف التاريخ والحضارة">
-      <h3>التاريخ والحضارة</h3>
-      <a href="التاريخ_والحضارة.pdf" target="_blank">📖 قراءة</a>
-    </div>
-
-    <div class="book-card">
-      <img src="32.jpg" alt="غلاف تاريخ العالم القديم">
-      <h3>تاريخ العالم القديم</h3>
-      <a href="تاريخ_العالم_القديم.pdf" target="_blank">📖 قراءة</a>
-    </div>
-
-    <div class="book-card">
-      <img src="33.jpg" alt="غلاف العرب قبل الإسلام">
-      <h3>العرب قبل الإسلام</h3>
-      <a href="العرب_قبل_الإسلام.pdf" target="_blank">📖 قراءة</a>
-    </div>
-
-    <div class="book-card">
-      <img src="34.jpg" alt="غلاف التاريخ الحديث">
-      <h3>التاريخ الحديث</h3>
-      <a href="التاريخ_الحديث.pdf" target="_blank">📖 قراءة</a>
-    </div>
-
-    <div class="book-card">
-      <img src="35.jpg" alt="غلاف حضارات الشرق القديم">
-      <h3>حضارات الشرق القديم</h3>
-      <a href="حضارات_الشرق_القديم.pdf" target="_blank">📖 قراءة</a>
-    </div>
-
-    <div class="book-card">
-      <img src="36.jpg" alt="غلاف التاريخ الإسلامي">
-      <h3>التاريخ الإسلامي</h3>
-      <a href="التاريخ_الإسلامي.pdf" target="_blank">📖 قراءة</a>
-    </div>
+      <img src="غلاف.jpg" alt="غلاف الاعداد والانتحال">
+      <h3>الاعداد والانتحال </h3>
+      <a href="الإعداد_والانتحال.pdf" target="_blank">📖 قراءة</a>
   </div>
-
-  <a href="arabic.html" class="back-btn">العودة للصفحة العربية</a>
+  <!-- زر العودة -->
+  <a href="arabic.html" class="back-btn"> العودة للصفحة العربية</a>
 
   <script>
     const sideMenu = document.getElementById("sideMenu");
@@ -238,6 +216,7 @@
       }
     }
 
+    // البحث
     const searchInput = document.getElementById('searchInput');
     const books = document.querySelectorAll('.book-card');
     const notFound = document.getElementById('notFound');
