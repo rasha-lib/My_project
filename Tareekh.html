@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>قسم التاريخ</title>
+  <title>Tareekh.html</title>
   <style>
     body {
       margin: 0;
@@ -157,11 +157,10 @@
 </head>
 <body>
 
- <header>
-Tareekh.html
-  <span class="menu-btn" onclick="openMenu()">☰</span>
-</header>
-
+  <header>
+   Tareekh.html
+    <span class="menu-btn" onclick="openMenu()">☰</span>
+  </header>
 
   <div class="search-bar">
     <input type="text" id="searchInput" placeholder="ابحث عن كتاب في التاريخ...">
@@ -182,9 +181,44 @@ Tareekh.html
   <div class="container">
     <!-- الكتاب الأول -->
     <div class="book-card">
-      <img src="21.jpg" alt="غلاف كتاب في التاريخ">
-      <h3>النقد الفني</h3>
-      <a href="النقد_الفني.pdf" target="_blank">📖 قراءة</a>
+      <img src="31.jpg" alt="غلاف التاريخ والحضارة">
+      <h3>التاريخ والحضارة</h3>
+      <a href="التاريخ_والحضارة.pdf" target="_blank">📖 قراءة</a>
+    </div>
+
+    <!-- الكتاب الثاني -->
+    <div class="book-card">
+      <img src="32.jpg" alt="غلاف تاريخ العالم القديم">
+      <h3>تاريخ العالم القديم</h3>
+      <a href="تاريخ_العالم_القديم.pdf" target="_blank">📖 قراءة</a>
+    </div>
+
+    <!-- الكتاب الثالث -->
+    <div class="book-card">
+      <img src="33.jpg" alt="غلاف العرب قبل الإسلام">
+      <h3>العرب قبل الإسلام</h3>
+      <a href="العرب_قبل_الإسلام.pdf" target="_blank">📖 قراءة</a>
+    </div>
+
+    <!-- الكتاب الرابع -->
+    <div class="book-card">
+      <img src="34.jpg" alt="غلاف التاريخ الحديث">
+      <h3>التاريخ الحديث</h3>
+      <a href="التاريخ_الحديث.pdf" target="_blank">📖 قراءة</a>
+    </div>
+
+    <!-- الكتاب الخامس -->
+    <div class="book-card">
+      <img src="35.jpg" alt="غلاف حضارات الشرق القديم">
+      <h3>حضارات الشرق القديم</h3>
+      <a href="حضارات_الشرق_القديم.pdf" target="_blank">📖 قراءة</a>
+    </div>
+
+    <!-- الكتاب السادس -->
+    <div class="book-card">
+      <img src="36.jpg" alt="غلاف التاريخ الإسلامي">
+      <h3>التاريخ الإسلامي</h3>
+      <a href="التاريخ_الإسلامي.pdf" target="_blank">📖 قراءة</a>
     </div>
   </div>
 
@@ -192,14 +226,17 @@ Tareekh.html
 
   <script>
     const sideMenu = document.getElementById("sideMenu");
+
     function openMenu() {
       sideMenu.style.width = "250px";
       document.addEventListener('click', closeOnOutsideClick);
     }
+
     function closeMenu() {
       sideMenu.style.width = "0";
       document.removeEventListener('click', closeOnOutsideClick);
     }
+
     function closeOnOutsideClick(e) {
       if (!sideMenu.contains(e.target) && !e.target.classList.contains('menu-btn')) {
         closeMenu();
