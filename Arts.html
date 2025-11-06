@@ -2,186 +2,253 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <title>Digital Library</title>
+  <title>Arts Department</title>
   <style>
     body {
       margin: 0;
       font-family: "Tahoma", sans-serif;
-      background-image: url('خلفية.jpg'); /* Change to your design */
+      background-image: url('خلفية.jpg');
       background-size: cover;
-      background-position: center;
       background-repeat: no-repeat;
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      background-attachment: fixed;
+      background-position: center center;
+      color: #222;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      font-size: 45px;
+      font-weight: bold;
+      color: white;
       position: relative;
-      padding-bottom: 120px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
-    /* Hamburger menu button */
     .menu-btn {
-      position: fixed;
-      top: 20px;
-      left: 25px; /* Since English is LTR, move to left */
-      width: 50px;
-      height: 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      font-size: 70px;
       cursor: pointer;
-      z-index: 1001;
+      color: white;
+      transition: transform 0.2s;
+      z-index: 20;
     }
 
-    .menu-btn span {
-      display: block;
-      height: 6px;
-      width: 100%;
-      background-color: #fff;
-      border-radius: 3px;
-      transition: all 0.3s ease;
+    .menu-btn:hover {
+      transform: scale(1.15);
     }
 
-    /* Side menu */
     .side-menu {
       height: 100%;
-      width: 300px;
+      width: 0;
       position: fixed;
+      z-index: 10;
       top: 0;
-      left: -300px; /* Move to left for English */
+      left: 0;
       background-color: rgba(0,0,0,0.95);
       overflow-x: hidden;
-      transition: 0.4s ease;
-      padding-top: 60px;
-      box-sizing: border-box;
-      z-index: 1000;
-    }
-
-    .side-menu input {
-      width: 80%;
-      margin: 10px auto 20px auto;
-      display: block;
-      padding: 10px;
-      font-size: 16px;
-      border-radius: 6px;
-      border: none;
+      transition: 0.4s;
+      padding-top: 120px;
     }
 
     .side-menu a {
-      padding: 15px 30px;
-      text-decoration: none;
-      font-size: 22px;
-      color: #ffd700;
       display: block;
-      transition: background 0.3s;
+      color: gold;
+      text-decoration: none;
+      padding: 12px 25px;
+      text-align: left;
+      font-size: 18px;
     }
 
     .side-menu a:hover {
-      background-color: rgba(128,0,0,0.7);
-      border-radius: 6px;
+      background-color: rgba(255,255,255,0.1);
     }
 
-    /* About us box */
-    .about-us {
-      width: 80%;
-      max-width: 900px;
-      height: 60vh;
-      background: rgba(128, 0, 0, 0.85);
-      border-radius: 12px;
-      padding: 40px;
-      text-align: center;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.6);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
-
-    .about-us h2 {
-      color: #fff;
-      margin-bottom: 20px;
-      font-size: 32px;
-    }
-
-    .about-us p {
-      color: #fff;
-      font-size: 22px;
-      line-height: 1.6;
-    }
-
-    /* Back button */
-    .btn-back {
-      background-color: #800000;
-      color: #fff;
+    .search-bar input {
+      width: 100%;
+      padding: 15px;
       border: none;
+      font-size: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      text-align: left;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px;
+      gap: 25px;
+    }
+
+    .book-card {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      width: 230px;
+      text-align: center;
+      padding: 15px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .book-card:hover {
+      transform: scale(1.05);
+    }
+
+    .book-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .book-card h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+      color: #222;
+    }
+
+    .book-card a {
+      display: inline-block;
+      background-color: #0077cc;
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 6px;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+
+    .book-card a:hover {
+      background-color: #005fa3;
+    }
+
+    #notFound {
+      display: none;
+      text-align: center;
+      color: red;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    .back-btn {
+      display: block;
+      width: fit-content;
+      margin: 40px auto;
+      background-color: #a30000;
+      color: #fff;
       padding: 15px 30px;
       border-radius: 8px;
-      font-size: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
       text-decoration: none;
-      display: block;
-      text-align: center;
-      margin-bottom: 20px;
+      font-size: 20px;
+      transition: background-color 0.3s;
     }
 
-    .btn-back:hover {
-      background-color: #a00000;
+    .back-btn:hover {
+      background-color: #cc0000;
     }
   </style>
 </head>
 <body>
 
-  <!-- Hamburger menu -->
-  <div class="menu-btn" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
+  <header>
+    Arts Department
+    <span class="menu-btn" onclick="openMenu()">☰</span>
+  </header>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for a literature book...">
   </div>
 
-  <!-- Side menu -->
   <div id="sideMenu" class="side-menu">
-    <input type="text" placeholder="Search for a book...">
-    <a href="Literature.html">Literature</a>
+    <a href="adab-en.html">Literature</a>
     <a href="philosophy.html">Philosophy</a>
-    <a href="#">Arts</a>
-    <a href="#">Poetry</a>
-    <a href="#">History</a>
-    <a href="#">Medicine</a>
-    <a href="#">Technology</a>
+    <a href="arts.html">Arts</a>
+    <a href="poetry.html">Poetry</a>
+    <a href="history.html">History</a>
+    <a href="reader-break.html">Reader’s Lounge</a>
+    <a href="technology.html">Technology</a>
   </div>
 
-  <!-- About us box -->
-  <div class="about-us">
-    <h2>About Us</h2>
-    <p>
-      We are the Arabic Digital Library, a platform specialized in providing Arabic knowledge sources in all fields. We aim to facilitate access to books and references in a safe and organized digital way, with a modern and easy-to-use interface. Our mission is to empower the Arabic reader to learn, research, and benefit from trusted content without restrictions, while maintaining a comfortable and attractive digital experience for all visitors.
-    </p>
+  <div id="notFound">❌ Book not found</div>
+
+  <div class="container">
+    <!-- Book 1 -->
+    <div class="book-card">
+      <img src="11.jpg" alt="Cover of Literature and Life">
+      <h3>Literature and Life</h3>
+      <a href="Literature_and_Life.pdf" target="_blank">📖 Read</a>
+    </div>
+    <!-- Book 2 -->
+    <div class="book-card">
+      <img src="12.jpg" alt="Cover of The Art of Fiction">
+      <h3>The Art of Fiction</h3>
+      <a href="The_Art_of_Fiction.pdf" target="_blank">📖 Read</a>
+    </div>
+    <!-- Book 3 -->
+    <div class="book-card">
+      <img src="13.jpg" alt="Cover of Literary Criticism">
+      <h3>Literary Criticism</h3>
+      <a href="Literary_Criticism.pdf" target="_blank">📖 Read</a>
+    </div>
+    <!-- Book 4 -->
+    <div class="book-card">
+      <img src="14.jpg" alt="Cover of Modern Poetry">
+      <h3>Modern Poetry</h3>
+      <a href="Modern_Poetry.pdf" target="_blank">📖 Read</a>
+    </div>
+    <!-- Book 5 -->
+    <div class="book-card">
+      <img src="15.jpg" alt="Cover of World Literature">
+      <h3>World Literature</h3>
+      <a href="World_Literature.pdf" target="_blank">📖 Read</a>
+    </div>
   </div>
 
-  <!-- Back button -->
-  <a href="index.html" class="btn-back"> Back to Home</a>
+  <a href="english.html" class="back-btn">Back to English Page</a>
 
   <script>
-    const sideMenu = document.getElementById('sideMenu');
-    const menuBtn = document.querySelector('.menu-btn');
+    const sideMenu = document.getElementById("sideMenu");
 
-    function toggleMenu() {
-      if (sideMenu.style.left === '0px') {
-        sideMenu.style.left = '-300px';
-      } else {
-        sideMenu.style.left = '0px';
+    function openMenu() {
+      sideMenu.style.width = "250px";
+      document.addEventListener('click', closeOnOutsideClick);
+    }
+
+    function closeMenu() {
+      sideMenu.style.width = "0";
+      document.removeEventListener('click', closeOnOutsideClick);
+    }
+
+    function closeOnOutsideClick(e) {
+      if (!sideMenu.contains(e.target) && !e.target.classList.contains('menu-btn')) {
+        closeMenu();
       }
     }
 
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-      if (!sideMenu.contains(event.target) && !menuBtn.contains(event.target)) {
-        sideMenu.style.left = '-300px';
-      }
+    const searchInput = document.getElementById('searchInput');
+    const books = document.querySelectorAll('.book-card');
+    const notFound = document.getElementById('notFound');
+
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim().toLowerCase();
+      let found = false;
+      books.forEach(book => {
+        const title = book.querySelector('h3').textContent.trim().toLowerCase();
+        if (title.includes(query) || query === '') {
+          book.style.display = 'block';
+        } else {
+          book.style.display = 'none';
+        }
+        if (title.includes(query)) {
+          found = true;
+        }
+      });
+      notFound.style.display = (query && !found) ? 'block' : 'none';
     });
   </script>
 
