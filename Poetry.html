@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Poetry Department</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Tahoma", sans-serif;
+      background-image: url('خلفية.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center center;
+      color: #222;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      font-size: 45px;
+      font-weight: bold;
+      color: white;
+      position: relative;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .menu-btn {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      font-size: 70px;
+      cursor: pointer;
+      color: white;
+      transition: transform 0.2s;
+      z-index: 20;
+    }
+
+    .menu-btn:hover {
+      transform: scale(1.15);
+    }
+
+    .side-menu {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      background-color: rgba(0,0,0,0.95);
+      overflow-x: hidden;
+      transition: 0.4s;
+      padding-top: 120px;
+    }
+
+    .side-menu a {
+      display: block;
+      color: gold;
+      text-decoration: none;
+      padding: 12px 25px;
+      text-align: left;
+      font-size: 18px;
+    }
+
+    .side-menu a:hover {
+      background-color: rgba(255,255,255,0.1);
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      font-size: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      text-align: left;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px;
+      gap: 25px;
+    }
+
+    .book-card {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      width: 230px;
+      text-align: center;
+      padding: 15px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .book-card:hover {
+      transform: scale(1.05);
+    }
+
+    .book-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .book-card h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+      color: #222;
+    }
+
+    .book-card a {
+      display: inline-block;
+      background-color: #0077cc;
+      color: #fff;
+      padding: 8px 15px;
+      border-radius: 6px;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+
+    .book-card a:hover {
+      background-color: #005fa3;
+    }
+
+    #notFound {
+      display: none;
+      text-align: center;
+      color: red;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    .back-btn {
+      display: block;
+      width: fit-content;
+      margin: 40px auto;
+      background-color: #a30000;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 20px;
+      transition: background-color 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: #cc0000;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Poetry Department
+    <span class="menu-btn" onclick="openMenu()">☰</span>
+  </header>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for a literature book...">
+  </div>
+
+  <div id="sideMenu" class="side-menu">
+    <a href="adab-en.html">Literature</a>
+    <a href="philosophy.html">Philosophy</a>
+    <a href="arts.html">Arts</a>
+    <a href="poetry.html">Poetry</a>
+    <a href="history.html">History</a>
+    <a href="reader-break.html">Reader’s Lounge</a>
+    <a href="technology.html">Technology</a>
+  </div>
+
+  <div id="notFound">❌ Book not found</div>
+
+  <div class="container">
+    <!-- Book 1 -->
+    <div class="book-card">
+      <img src="11.jpg" alt="Cover of Literature and Life">
+      <h3>Literature and Life</h3>
+      <a href="Literature_and_Life.pdf" target="_blank">📖 Read</a>
+    </div>
+    <!-- Book 2 -->
+    <div class="book-card">
+      <img src="12.jpg" alt="Cover of The Art of Fiction">
+      <h3>The Art of Fiction</h3>
+      <a href="The_Art_of_Fiction.pdf" target="_blank">📖 Read</a>
+    </div>
+    <!-- Book 3 -->
+    <div class="book-card">
+      <img src="13.jpg" alt="Cover of Literary Criticism">
+      <h3>Literary Criticism</h3>
+      <a href="Literary_Criticism.pdf" target="_blank">📖 Read</a>
+    </div>
+    <!-- Book 4 -->
+    <div class="book-card">
+      <img src="14.jpg" alt="Cover of Modern Poetry">
+      <h3>Modern Poetry</h3>
+      <a href="Modern_Poetry.pdf" target="_blank">📖 Read</a>
+    </div>
+    <!-- Book 5 -->
+    <div class="book-card">
+      <img src="15.jpg" alt="Cover of World Literature">
+      <h3>World Literature</h3>
+      <a href="World_Literature.pdf" target="_blank">📖 Read</a>
+    </div>
+  </div>
+
+  <a href="english.html" class="back-btn">Back to English Page</a>
+
+  <script>
+    const sideMenu = document.getElementById("sideMenu");
+
+    function openMenu() {
+      sideMenu.style.width = "250px";
+      document.addEventListener('click', closeOnOutsideClick);
+    }
+
+    function closeMenu() {
+      sideMenu.style.width = "0";
+      document.removeEventListener('click', closeOnOutsideClick);
+    }
+
+    function closeOnOutsideClick(e) {
+      if (!sideMenu.contains(e.target) && !e.target.classList.contains('menu-btn')) {
+        closeMenu();
+      }
+    }
+
+    const searchInput = document.getElementById('searchInput');
+    const books = document.querySelectorAll('.book-card');
+    const notFound = document.getElementById('notFound');
+
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim().toLowerCase();
+      let found = false;
+      books.forEach(book => {
+        const title = book.querySelector('h3').textContent.trim().toLowerCase();
+        if (title.includes(query) || query === '') {
+          book.style.display = 'block';
+        } else {
+          book.style.display = 'none';
+        }
+        if (title.includes(query)) {
+          found = true;
+        }
+      });
+      notFound.style.display = (query && !found) ? 'block' : 'none';
+    });
+  </script>
+
+</body>
+</html>
